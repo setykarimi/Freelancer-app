@@ -1,6 +1,6 @@
 export interface SendOTPFormPropTypes {
-    phoneNumber: number | string;
-    setStep: React.Dispatch<React.SetStateAction<number>>
-    setPhoneNumber: React.Dispatch<React.SetStateAction<string>>
-  }
-  
+  phoneNumber: number | string;
+  setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+  onSubmit: (e: React.ChangeEvent<HTMLFormElement>) => void;
+  isSendingOtp: boolean;
+}
