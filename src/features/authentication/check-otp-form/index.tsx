@@ -1,13 +1,21 @@
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { HiArrowRight } from "react-icons/hi";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { checkOtp } from "../../../services/auth-service";
 import { CheckOTPFormPropTypes } from "./type";
 
-export default function CheckOTPForm({ phoneNumber }: CheckOTPFormPropTypes) {
+const RESEND_TIME = 90;
+
+export default function CheckOTPForm({
+  phoneNumber,
+  onBack,
+  onResendOtp,
+}: CheckOTPFormPropTypes) {
   const [otp, setOtp] = useState("");
+  const [time, setTime] = useState(RESEND_TIME);
   const navigate = useNavigate();
   const { isPending, error, data, mutateAsync } = useMutation({
     mutationFn: checkOtp,
@@ -29,8 +37,32 @@ export default function CheckOTPForm({ phoneNumber }: CheckOTPFormPropTypes) {
       toast.error(error?.response?.data?.message);
     }
   };
+
+  useEffect(() => {
+    const timer =
+      time > 0 &&
+      setInterval(() => {
+        setTime((t) => t - 1);
+      }, 1000);
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, []);
+
   return (
     <div>
+      <button onClick={onBack}>
+        <HiArrowRight className="w-6 h-6 text-secondary-500" />
+      </button>
+      <div className="mb-4 text-secondary-500">
+        {time > 0 ? (
+          <p>{time} ارسال مجدد کد</p>
+        ) : (
+          <button onClick={onResendOtp}>ارسال مجدد کد تایید</button>
+        )}
+      </div>
       <form className="space-y-10" onSubmit={checkOtpHandler}>
         <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
         <OTPInput
