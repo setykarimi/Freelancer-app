@@ -5,6 +5,7 @@ import { CiEdit } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../../common/loading";
 import { checkOtp } from "../../../services/auth-service";
 import { CheckOTPFormPropTypes } from "./type";
 const RESEND_TIME = 90;
@@ -18,7 +19,7 @@ export default function CheckOTPForm({
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESEND_TIME);
   const navigate = useNavigate();
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
 
@@ -88,9 +89,13 @@ export default function CheckOTPForm({
             borderRadius: ".5rem",
           }}
         />
-        <button type="submit" className="btn btn--primary w-full">
-          تایید
-        </button>
+        {isPending ? (
+          <Loading />
+        ) : (
+          <button type="submit" className="btn btn--primary w-full">
+            تایید
+          </button>
+        )}
       </form>
     </div>
   );
