@@ -10,7 +10,6 @@ export default function AuthContainer() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const {
     isPending: isSendingOtp,
-    error,
     data: otpResponse,
     mutateAsync,
   } = useMutation({
