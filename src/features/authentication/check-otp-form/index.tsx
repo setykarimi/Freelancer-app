@@ -1,18 +1,19 @@
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { CiEdit } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { checkOtp } from "../../../services/auth-service";
 import { CheckOTPFormPropTypes } from "./type";
-
 const RESEND_TIME = 90;
 
 export default function CheckOTPForm({
   phoneNumber,
   onBack,
   onResendOtp,
+  otpResponse,
 }: CheckOTPFormPropTypes) {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESEND_TIME);
@@ -56,6 +57,14 @@ export default function CheckOTPForm({
       <button onClick={onBack}>
         <HiArrowRight className="w-6 h-6 text-secondary-500" />
       </button>
+      {otpResponse && (
+        <p className="flex items-center gap-x-2 my-4">
+          <span> {otpResponse?.message} </span>
+          <button onClick={onBack}>
+            <CiEdit className="w-6 h-6 text-secondary-500" />
+          </button>
+        </p>
+      )}
       <div className="mb-4 text-secondary-500">
         {time > 0 ? (
           <p>{time} ارسال مجدد کد</p>
