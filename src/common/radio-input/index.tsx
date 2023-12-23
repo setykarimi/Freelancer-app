@@ -20,7 +20,7 @@ export default function RadioInput({
         onChange={onChange}
         checked={checked}
       />
-      <label htmlFor="OWNER">{label}</label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 }
