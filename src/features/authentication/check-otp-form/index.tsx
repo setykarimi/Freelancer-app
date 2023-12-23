@@ -30,11 +30,14 @@ export default function CheckOTPForm({
         otp: otp,
       });
       toast.success(message);
-      if (user.active) {
-        if (user.role == "OWNER") navigate("owner");
-      } else {
-        navigate("/complete-profile");
+      // if (!user.active) return navigate("/complete-profile");
+      if (user.status !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است.", { icon: "👏🏻" });
+        return;
       }
+      if (user.role == "OWNER") return navigate("/owner");
+      if (user.role == "FREELANCER") return navigate("/freelance");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
