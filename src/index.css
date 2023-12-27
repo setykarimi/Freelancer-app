@@ -72,7 +72,7 @@
 }
 
 html,
-body {
+body, #root {
   padding: 0;
   margin: 0;
   font-family: "Vazir";
@@ -94,6 +94,7 @@ button {
   cursor: pointer;
   outline: none;
 }
+
 button:disabled {
   cursor: default;
   background-color: rgb(var(--color-secondary-100), 0.5);
