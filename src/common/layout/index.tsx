@@ -8,7 +8,7 @@ export default function Layout() {
       <Navbar />
       <Sidebar />
       <div className="bg-secondary-100 p-8 overflow-y-auto h-full">
-        <div className="mx-auto max-w-screen-md flex flex-col gap-y-12">
+        <div className="mx-auto max-w-screen-lg flex flex-col gap-y-12">
           <Outlet />
         </div>
       </div>
