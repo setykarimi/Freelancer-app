@@ -1,4 +1,4 @@
-import useUser from "../../../services/use-user";
+import useUser from "../../../hook/use-user";
 
 export default function Navbar() {
   const { data } = useUser();
