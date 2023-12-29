@@ -1,3 +1,5 @@
+import { HiOutlineTrash } from "react-icons/hi";
+import { TbPenciMinus } from "react-icons/tb";
 import Table from "../../../../common/table";
 import toLocalDateShort from "../../../../utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "../../../../utils/to-persian-numbers";
@@ -28,6 +30,10 @@ export default function ProjectRow({project, index}) {
           ) : (
             <span className="badge badge--danger">بسته</span>
           )}
+        </td>
+        <td>
+          <button><TbPenciMinus className="w-5 h-5 text-primary-"/></button>
+          <button><HiOutlineTrash /></button>
         </td>
       </Table.Row>
     </>
