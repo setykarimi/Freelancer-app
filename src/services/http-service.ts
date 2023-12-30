@@ -9,7 +9,7 @@ const app = axios.create({
 
 app.interceptors.request.use(
   (res) => res,
-  (err) => Promise.reject
+  () => Promise.reject
 );
 
 //  err => resonse => statue == 401 => proccess => !!!!!
