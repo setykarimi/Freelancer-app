@@ -30,7 +30,6 @@ export default function CheckOTPForm({
         otp: otp,
       });
       toast.success(message);
-      // if (!user.active) return navigate("/complete-profile");
       if (user.status !== 2) {
         navigate("/");
         toast("پروفایل شما در انتظار تایید است.", { icon: "👏🏻" });
