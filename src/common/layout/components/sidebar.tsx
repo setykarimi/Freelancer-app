@@ -8,7 +8,7 @@ export default function Sidebar() {
           <NavLink
             to="/owner/dashboard"
             className={({ isActive }) => {
-              isActive ? "bg-primary-100/50" : "";
+              return isActive ? "bg-primary-100/50" : "";
             }}
           >
             خانه
