@@ -1,6 +1,7 @@
 import Loading from "../../../common/loading";
 import Table from "../../../common/table";
 import useOwnerProjects from "../../../hook/use-owner-projects";
+import ProjectRow from "./components/project-row";
 
 export default function PorjectTable() {
   const { isLoading, projects } = useOwnerProjects();
@@ -23,7 +24,7 @@ export default function PorjectTable() {
           <th>عملیات</th>
         </Table.Header>
         <Table.Body>
-          {projects.map((project, index) => (
+          {projects.map((project: any, index: number) => (
             <ProjectRow project={project} index={index} />
           ))}
         </Table.Body>
