@@ -1,4 +1,6 @@
-export default function Table({ children }) {
+import React from "react";
+
+export default function Table({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-secondary-0 overflow-x-auto">
       <table>{children}</table>
@@ -6,7 +8,7 @@ export default function Table({ children }) {
   );
 }
 
-function TableHeader({ children }) {
+function TableHeader({ children }: { children: React.ReactNode }) {
   return (
     <thead>
       <tr className="title-row">{children}</tr>
@@ -14,11 +16,11 @@ function TableHeader({ children }) {
   );
 }
 
-function TableBody({ children }) {
+function TableBody({ children }: { children: React.ReactNode }) {
   return <tbody>{children}</tbody>;
 }
 
-function TableRow({ children }) {
+function TableRow({ children }: { children: React.ReactNode }) {
   return <tr>{children}</tr>;
 }
 
