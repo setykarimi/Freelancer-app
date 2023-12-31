@@ -1,5 +1,5 @@
 export interface CheckOTPFormPropTypes {
-  phoneNumber: number | string;
+  phoneNumber: string;
   onBack: () => void;
   onResendOtp: (e: any) => void;
   otpResponse: any
