@@ -8,7 +8,7 @@ export default function TextField({
 }: TextFieldPropsType) {
   return (
     <div>
-      <label className="mb-1 block" htmlFor={name}>
+      <label className="mb-1 block text-secondary-700 font-bold" htmlFor={name}>
         {label}
       </label>
       <input
