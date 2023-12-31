@@ -18,15 +18,17 @@ export default function AuthContainer() {
 
   const sendOtpHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     try {
       const data = await mutateAsync({
         phoneNumber,
       });
-      console.log("data", data);
       setStep(2);
       toast.success(data?.message);
     } catch (error: any) {
-      toast.error(error?.response?.data?.message);
+      const err_msg = error.response.data.message;
+
+      toast.error(err_msg ? err_msg : "متاسفانه خطایی رخ داده است.");
     }
   };
 
@@ -54,8 +56,10 @@ export default function AuthContainer() {
         return null;
     }
   };
+
+
   return (
-    <div className="flex justify-center pt-10">
+    <div className="flex flex-col justify-center pt-10 w-full">
       <div>{renderStep()}</div>
     </div>
   );
