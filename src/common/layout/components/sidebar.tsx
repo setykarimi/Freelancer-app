@@ -15,7 +15,9 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/owner/dashboard">پروژه‌ها</NavLink>
+          <NavLink className={({ isActive }) => {
+              return isActive ? "bg-primary-100/50" : "";
+            }} to="/owner/projects">پروژه‌ها</NavLink>
         </li>
       </ul>
     </div>
