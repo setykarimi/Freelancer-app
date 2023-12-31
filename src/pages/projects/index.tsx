@@ -1,3 +1,5 @@
+import PorjectTable from "../../features/projects/table";
+
 export default function Projects() {
-  return <div>Projects</div>;
+  return <PorjectTable />;
 }
