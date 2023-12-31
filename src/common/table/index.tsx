@@ -1,5 +1,6 @@
 import React from "react";
 
+// Compound component pattern
 export default function Table({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-secondary-0 overflow-x-auto">
