@@ -23,7 +23,8 @@ export default function CheckOTPForm({
     mutationFn: checkOtp,
   });
 
-  const checkOtpHandler = async () => {
+  const checkOtpHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       const { message, user } = await mutateAsync({
         phoneNumber: phoneNumber,
