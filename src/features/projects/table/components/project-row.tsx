@@ -6,6 +6,7 @@ import Table from "../../../../common/table";
 import toLocalDateShort from "../../../../utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "../../../../utils/to-persian-numbers";
 import truncateText from "../../../../utils/truncate-text";
+import ConsifrmDelete from "../../../../common/confirm/delete";
 
 export default function ProjectRow({
   project,
@@ -15,6 +16,7 @@ export default function ProjectRow({
   index: number;
 }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDelteOpen] = useState(false);
   return (
     <>
       <Table.Row key={project.id}>
@@ -42,19 +44,33 @@ export default function ProjectRow({
         </td>
         <td>
           <div className="flex items-center gap-x-4">
-            <button onClick={() => setIsEditOpen(true)}>
-              <TbPencilMinus className="w-5 h-5 text-primary-900" />
-            </button>
-            <Modal
-              open={isEditOpen}
-              title="modal title"
-              onClose={() => setIsEditOpen(false)}
-            >
-              This is modal
-            </Modal>
-            <button>
+            <>
+              <button onClick={() => setIsEditOpen(true)}>
+                <TbPencilMinus className="w-5 h-5 text-primary-900" />
+              </button>
+              <Modal
+                open={isEditOpen}
+                title={`ویرایش ${project.title}`}
+                onClose={() => setIsEditOpen(false)}
+              >
+                This is modal
+              </Modal>
+            </>
+            <button onClick={() => setIsDelteOpen(true)}>
               <HiOutlineTrash className="w-5 h-5 text-error" />
             </button>
+            <Modal
+              open={isDeleteOpen}
+              title={`حذف ${project.title}`}
+              onClose={() => setIsDelteOpen(false)}
+            >
+              <ConsifrmDelete
+                onConfirm={() => {}}
+                onClose={() => setIsDelteOpen(false)}
+                resourceName={project.title}
+                disabled={false}
+              />
+            </Modal>
           </div>
         </td>
       </Table.Row>
