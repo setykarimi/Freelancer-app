@@ -5,9 +5,9 @@ import { CiEdit } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../../common/loading";
-import { checkOtp } from "../../../services/auth-service";
 import { CheckOTPFormPropTypes } from "./type";
+import Loading from "@common/loading";
+import { checkOtp } from "@services/auth-service";
 const RESEND_TIME = 90;
 
 export default function CheckOTPForm({
