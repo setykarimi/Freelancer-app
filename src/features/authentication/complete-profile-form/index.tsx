@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import RadioInput from "../../../common/radio-input";
-import TextField from "../../../common/text-field";
-import { completeProfile } from "../../../services/auth-service";
-import Loading from "../../../common/loading";
+import { completeProfile } from "@services/auth-service";
+import RadioInput from "@common/radio-input";
+import TextField from "@common/text-field";
+import Loading from "@common/loading";
 
 export default function CompleteProfileForm() {
   const { mutateAsync, isPending } = useMutation({
