@@ -25,7 +25,7 @@ export default function PorjectTable() {
         </Table.Header>
         <Table.Body>
           {projects.map((project: any, index: number) => (
-            <ProjectRow project={project} index={index} />
+            <ProjectRow key={project._id} project={project} index={index} />
           ))}
         </Table.Body>
       </Table>
