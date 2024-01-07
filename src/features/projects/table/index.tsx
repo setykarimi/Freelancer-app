@@ -1,6 +1,6 @@
-import Loading from "../../../common/loading";
-import Table from "../../../common/table";
-import useOwnerProjects from "../../../hook/use-owner-projects";
+import Loading from "@common/loading";
+import Table from "@common/table";
+import useOwnerProjects from "@hook/use-owner-projects";
 import ProjectRow from "./components/project-row";
 
 export default function PorjectTable() {
