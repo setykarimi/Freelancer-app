@@ -6,12 +6,8 @@ export function getOwnerProjectsApi() {
 
 export function removeProjectApi(id: string): Promise<any>{
   return http.delete(`/project/${id}`).then(({ data }) => {
-    console.log("data", data);
     return data.data
-    
-  }).catch((error)=> {
-    console.log("error", error);
-    
+  }).catch((error)=> {    
     return Promise.reject(error);
   })
 }
