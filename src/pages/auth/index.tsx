@@ -1,4 +1,4 @@
-import AuthContainer from "../../features/authentication";
+import AuthContainer from "@features/authentication";
 
 export default function AuthPage() {
   return (
