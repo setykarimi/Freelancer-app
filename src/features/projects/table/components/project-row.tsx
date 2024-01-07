@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { HiOutlineTrash } from "react-icons/hi";
-import { TbPencilMinus } from "react-icons/tb";
 import ConsifrmDelete from "@common/confirm/delete";
 import Modal from "@common/modal";
 import Table from "@common/table";
@@ -8,6 +5,9 @@ import useRemoveProject from "@hook/use-remove-project";
 import toLocalDateShort from "@utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "@utils/to-persian-numbers";
 import truncateText from "@utils/truncate-text";
+import { useState } from "react";
+import { HiOutlineTrash } from "react-icons/hi";
+import { TbPencilMinus } from "react-icons/tb";
 
 export default function ProjectRow({
   project,
@@ -18,7 +18,7 @@ export default function ProjectRow({
 }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDelteOpen] = useState(false);
-  const { isDeleting, removeProject } = useRemoveProject();
+  const { removeProject } = useRemoveProject();
 
   return (
     <>

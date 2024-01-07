@@ -1,10 +1,10 @@
+import Loading from "@common/loading";
+import RadioInput from "@common/radio-input";
+import TextField from "@common/text-field";
+import { completeProfile } from "@services/auth-service";
 import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { completeProfile } from "@services/auth-service";
-import RadioInput from "@common/radio-input";
-import TextField from "@common/text-field";
-import Loading from "@common/loading";
 
 export default function CompleteProfileForm() {
   const { mutateAsync, isPending } = useMutation({
@@ -27,7 +27,7 @@ export default function CompleteProfileForm() {
 
   const handleSubmit = async () => {
     try {
-      const { message, user } = await mutateAsync(formData);
+      const { message } = await mutateAsync(formData);
       toast.success(message);
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
