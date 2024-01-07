@@ -4,8 +4,8 @@ export function getOwnerProjectsApi() {
   return http.get("/project/owner-projects").then(({ data }) => data.data);
 }
 
-export function removeProjectAPi(id: string): Promise<any>{
-  return http.get(`/project/${id}`).then(({ data }) => {
+export function removeProjectApi(id: string): Promise<any>{
+  return http.delete(`/project/${id}`).then(({ data }) => {
     console.log("data", data);
     return data.data
     
