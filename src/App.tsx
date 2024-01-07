@@ -1,12 +1,12 @@
+import Layout from "@common/layout";
+import AuthPage from "@pages/auth";
+import CompleteProfile from "@pages/complete-profile";
+import Owner from "@pages/dashboard/owner";
+import Project from "@pages/project";
+import Projects from "@pages/projects";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./common/layout";
-import AuthPage from "./pages/auth";
-import CompleteProfile from "./pages/complete-profile";
-import Owner from "./pages/dashboard/owner";
-import Projects from "./pages/projects";
-import Project from "./pages/project";
 
 function App() {
   const queryClient = new QueryClient();
