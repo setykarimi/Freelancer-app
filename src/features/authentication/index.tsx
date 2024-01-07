@@ -1,9 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { getOtp } from "../../services/auth-service";
 import CheckOTPForm from "./check-otp-form";
 import SendOTPForm from "./send-otp-form";
+import { getOtp } from "@services/auth-service";
 
 export default function AuthContainer() {
   const [step, setStep] = useState(1);
