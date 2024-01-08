@@ -1,13 +1,14 @@
+import { getOtp } from "@services/auth-service";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import CheckOTPForm from "./check-otp-form";
 import SendOTPForm from "./send-otp-form";
-import { getOtp } from "@services/auth-service";
 
 export default function AuthContainer() {
   const [step, setStep] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState("");
+
   const {
     isPending: isSendingOtp,
     data: otpResponse,
@@ -16,13 +17,9 @@ export default function AuthContainer() {
     mutationFn: getOtp,
   });
 
-  const sendOtpHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const sendOtpHandler = async (values: any) => {
     try {
-      const data = await mutateAsync({
-        phoneNumber,
-      });
+      const data = await mutateAsync(values);
       setStep(2);
       toast.success(data?.message);
     } catch (error: any) {
@@ -32,31 +29,37 @@ export default function AuthContainer() {
     }
   };
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    getValues,
+  } = useForm();
+
   const renderStep = () => {
     switch (step) {
       case 1:
         return (
           <SendOTPForm
             isSendingOtp={isSendingOtp}
-            onSubmit={sendOtpHandler}
-            setPhoneNumber={setPhoneNumber}
-            phoneNumber={phoneNumber}
+            onSubmit={handleSubmit(sendOtpHandler)}
+            register={register}
+            errors={errors}
           />
         );
       case 2:
         return (
           <CheckOTPForm
-            phoneNumber={phoneNumber}
             onBack={() => setStep((prev) => prev - 1)}
             onResendOtp={sendOtpHandler}
             otpResponse={otpResponse}
+            phoneNumber={getValues("phoneNumber")}
           />
         );
       default:
         return null;
     }
   };
-
 
   return (
     <div className="flex flex-col justify-center pt-10 w-full">
