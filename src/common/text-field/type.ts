@@ -1,6 +1,9 @@
 export interface TextFieldPropsType {
   label: string;
   name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  register: any;
+  type?: string;
+  required?: boolean;
+  validationSchema: any;
+  errors: any;
 }
