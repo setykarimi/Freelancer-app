@@ -1,22 +1,25 @@
-
 import Loading from "@common/loading";
-import { SendOTPFormPropTypes } from "./type";
 import TextField from "@common/text-field";
+import { SendOTPFormPropTypes } from "./type";
 
 export default function SendOTPForm({
   onSubmit,
   isSendingOtp,
-  setPhoneNumber,
-  phoneNumber,
+  register,
+  errors,
 }: SendOTPFormPropTypes) {
   return (
     <div>
       <form className=" space-y-4" onSubmit={onSubmit}>
         <TextField
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          register={register}
+          errors={errors}
+          validationSchema={{
+            required: "شماره تماس الزامی است.",
+          }}
           label="شماره موبایل"
           name="phoneNumber"
+          required
         />
 
         <div>
