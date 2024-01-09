@@ -1,24 +1,44 @@
 import CustomDatePicker from "@common/form/date-picker";
 import RHFSelect from "@common/form/rhf-select";
 import TextField from "@common/form/text-field";
+import Loading from "@common/loading";
+import useCategories from "@hook/use-categories";
+import useCreateProject from "@hook/use-create-project";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import type { Value } from "react-multi-date-picker";
 import { TagsInput } from "react-tag-input-component";
-import type{Value} from "react-multi-date-picker"
-import useCategories from "@hook/use-categories";
 
-export default function CreateProjectForm() {
-  const {categories} = useCategories()
+export default function CreateProjectForm({
+  onclose,
+}: {
+  onclose: () => void;
+}) {
+  const { categories } = useCategories();
   const [tags, setTags] = useState([]);
-  const [date, setDate] =  useState<Value>(new Date());
+  const [date, setDate] = useState<Value>(new Date());
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
+  const { createProject, isCreating } = useCreateProject();
+
   const onSubmit = (values: any) => {
-    console.log(values);
+    const newProject = {
+      ...values,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+
+    createProject(newProject, {
+      onSuccess: () => {
+        onclose();
+        reset();
+      },
+    });
   };
   return (
     <div>
@@ -81,9 +101,15 @@ export default function CreateProjectForm() {
         </div>
 
         <CustomDatePicker date={date} setDate={setDate} label="تاریخ" />
-        <button className="btn btn--primary w-full" type="submit">
-          تایید
-        </button>
+        <div className="mt-8">
+          {isCreating ? (
+            <Loading />
+          ) : (
+            <button className="btn btn--primary w-full" type="submit">
+              تایید
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );
