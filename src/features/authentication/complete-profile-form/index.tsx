@@ -1,5 +1,5 @@
 import Loading from "@common/loading";
-import TextField from "@common/text-field";
+import TextField from "@common/form/text-field";
 import { completeProfile } from "@services/auth-service";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
