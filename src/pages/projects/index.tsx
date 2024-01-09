@@ -22,7 +22,7 @@ export default function Projects() {
           title="اضافه کردن پروژه جدید"
           onClose={() => setOpenModal(false)}
         >
-          <CreateProjectForm />
+          <CreateProjectForm onclose={()=>setOpenModal(false)}/>
         </Modal>
       </div>
       <PorjectTable />
