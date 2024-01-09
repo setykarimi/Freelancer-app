@@ -1,4 +1,4 @@
-import RadioInput from "@common/radio-input";
+import RadioInput from "@common/form/radio-input";
 
 export default function RadioInputGroup({ watch, register, errors, config }) {
   const { option, validationSchema = {}, name } = config;
