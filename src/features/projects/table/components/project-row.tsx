@@ -2,6 +2,7 @@ import ConsifrmDelete from "@common/confirm/delete";
 import Modal from "@common/modal";
 import Table from "@common/table";
 import CreateProjectForm from "@features/projects/form/create-project";
+import ToggleProjectStatus from "@features/projects/form/toggle-project-status";
 import useRemoveProject from "@hook/use-remove-project";
 import toLocalDateShort from "@utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "@utils/to-persian-numbers";
@@ -40,11 +41,7 @@ export default function ProjectRow({
         </td>
         <td>{project.freelancer?.name || "-"}</td>
         <td>
-          {project.status == "OPEN" ? (
-            <span className="badge badge--success">باز</span>
-          ) : (
-            <span className="badge badge--danger">بسته</span>
-          )}
+          <ToggleProjectStatus project={project}/>
         </td>
         <td>
           <div className="flex items-center gap-x-4">
