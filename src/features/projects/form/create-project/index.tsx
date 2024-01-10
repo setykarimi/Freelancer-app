@@ -4,6 +4,7 @@ import TextField from "@common/form/text-field";
 import Loading from "@common/loading";
 import useCategories from "@hook/use-categories";
 import useCreateProject from "@hook/use-create-project";
+import useEditProject from "@hook/use-edit-project";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import type { Value } from "react-multi-date-picker";
@@ -11,20 +12,49 @@ import { TagsInput } from "react-tag-input-component";
 
 export default function CreateProjectForm({
   onclose,
+  projectToEdit = {},
 }: {
+  projectToEdit?: any;
   onclose: () => void;
+  
+  
 }) {
+
+  
+  const { _id: editId } = projectToEdit;
+  const isEditSession = Boolean(editId);
+
+  const {
+    title,
+    description,
+    budget,
+    deadline,
+    category,
+    tags: projectTags,
+  } = projectToEdit;
+
+  let editValues = {};
+  if (isEditSession) {
+    editValues = {
+      title,
+      description,
+      budget,
+      category: category._id,
+    };
+  }
+
   const { categories } = useCategories();
-  const [tags, setTags] = useState([]);
-  const [date, setDate] = useState<Value>(new Date());
+  const [tags, setTags] = useState(projectTags ? projectTags : []);
+  const [date, setDate] = useState<Value>(deadline ? deadline : new Date());
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm();
+  } = useForm({ defaultValues: editValues });
 
   const { createProject, isCreating } = useCreateProject();
+  const { editPorject, isEditing } = useEditProject();
 
   const onSubmit = (values: any) => {
     const newProject = {
@@ -33,12 +63,21 @@ export default function CreateProjectForm({
       tags,
     };
 
-    createProject(newProject, {
-      onSuccess: () => {
-        onclose();
-        reset();
-      },
-    });
+    if (isEditSession) {
+      editPorject({id:editId, postData:newProject}, {
+        onSuccess: () => {
+          onclose();
+          reset();
+        },
+      });
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onclose();
+          reset();
+        },
+      });
+    }
   };
   return (
     <div>
@@ -102,7 +141,7 @@ export default function CreateProjectForm({
 
         <CustomDatePicker date={date} setDate={setDate} label="تاریخ" />
         <div className="mt-8">
-          {isCreating ? (
+          {isCreating || isEditing? (
             <Loading />
           ) : (
             <button className="btn btn--primary w-full" type="submit">
