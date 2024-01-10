@@ -19,9 +19,15 @@ export function createProjectApi(postData: any): Promise<any> {
 }
 
 export function editProjectApi({ id, postData }: any): Promise<any> {
-  
   return http
     .patch(`/project/update/${id}`, postData)
+    .then(({ data }) => data.data)
+    .catch((error) => Promise.reject(error));
+}
+
+export function toggleProjectStatusApi({ id, postData }: any): Promise<any> {
+  return http
+    .patch(`/project/${id}`, postData)
     .then(({ data }) => data.data)
     .catch((error) => Promise.reject(error));
 }
