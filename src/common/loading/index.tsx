@@ -1,6 +1,10 @@
 import { ThreeDots } from "react-loader-spinner";
+import { LoadingPropsType } from "./type";
 
-export default function Loading({ width = "76", height = "40" }) {
+export default function Loading({
+  width = "76",
+  height = "40",
+}: LoadingPropsType) {
   return (
     <ThreeDots
       height={height}
