@@ -18,10 +18,11 @@ export default function PorjectTable() {
           <th>دسته بندی</th>
           <th>بودجه</th>
           <th>ددلاین</th>
-          <th>تگ‌ّها</th>
+          <th>تگ‌ها</th>
           <th>فریلنسر</th>
           <th>وضعیت</th>
           <th>عملیات</th>
+          <th>درخواست‌ها</th>
         </Table.Header>
         <Table.Body>
           {projects.map((project: any, index: number) => (
