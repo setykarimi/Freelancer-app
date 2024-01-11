@@ -1,12 +1,11 @@
 import { Switch } from "@headlessui/react";
+import { TogglePropsType } from "./type";
 
-export default function Toggle({label, enabled, onChange}) {
+export default function Toggle({ label, enabled, onChange }: TogglePropsType) {
   return (
     <Switch.Group>
       <div className="flex items-center gap-x-2">
-        <Switch.Label className="">
-          {label}
-        </Switch.Label>
+        <Switch.Label className="">{label}</Switch.Label>
         <Switch
           checked={enabled}
           onChange={onChange}
