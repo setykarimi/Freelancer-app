@@ -1,13 +1,19 @@
 import RadioInput from "@common/form/radio-input";
+import { RadioInputGroupPropsType } from "./type";
 
-export default function RadioInputGroup({ watch, register, errors, config }) {
+export default function RadioInputGroup({
+  watch,
+  register,
+  errors,
+  config,
+}: RadioInputGroupPropsType) {
   const { option, validationSchema = {}, name } = config;
   return (
     <div>
       <div className="flex items-center justify-center gap-x-8">
-        {option.map(({label, value}) => (
+        {option.map(({ label, value }) => (
           <RadioInput
-          key={value}
+            key={value}
             label={label}
             value={value}
             watch={watch}
