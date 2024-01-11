@@ -8,8 +8,9 @@ import toLocalDateShort from "@utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "@utils/to-persian-numbers";
 import truncateText from "@utils/truncate-text";
 import { useState } from "react";
-import { HiOutlineTrash } from "react-icons/hi";
+import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 export default function ProjectRow({
   project,
@@ -79,6 +80,11 @@ export default function ProjectRow({
               />
             </Modal>
           </div>
+        </td>
+        <td>
+          <Link to={project._id} className="flex justify-center items-center">
+            <HiEye className="text-primary-800 w-5 h-5"/>
+          </Link>
         </td>
       </Table.Row>
     </>
