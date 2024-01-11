@@ -1,4 +1,4 @@
 export interface LoadingPropsType {
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
 }

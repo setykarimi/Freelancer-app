@@ -59,7 +59,7 @@ export default function CreateProjectForm({
   const onSubmit = (values: any) => {
     const newProject = {
       ...values,
-      deadline: new Date(date).toISOString(),
+      deadline: date,
       tags,
     };
 
@@ -79,6 +79,8 @@ export default function CreateProjectForm({
       });
     }
   };
+
+  
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
