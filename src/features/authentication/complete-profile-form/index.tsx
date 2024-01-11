@@ -1,5 +1,5 @@
-import Loading from "@common/loading";
 import TextField from "@common/form/text-field";
+import Loading from "@common/loading";
 import { completeProfile } from "@services/auth-service";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
@@ -25,8 +25,6 @@ export default function CompleteProfileForm() {
       toast.error(error?.response?.data?.message);
     }
   };
-
-  console.log(errors["role"]?.message);
 
   return (
     <div className="w-full sm:max-w-sm mx-auto pt-10">
