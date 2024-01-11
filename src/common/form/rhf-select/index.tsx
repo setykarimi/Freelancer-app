@@ -1,10 +1,12 @@
+import { RHFSelectPropsType } from "./type";
+
 export default function RHFSelect({
   label,
   name,
   register,
   options,
   required,
-}) {
+}:RHFSelectPropsType) {
   return (
     <div>
       <label htmlFor={name} className="mb-2 block text-secondary-700">
