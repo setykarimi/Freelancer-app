@@ -10,7 +10,7 @@ export default function Avatar() {
         src="/user.jpg"
         alt="user-account"
       />
-      <span>{user?.name}</span>
+      <span className="text-secondary-700 font-bold text-sm">{user?.name}</span>
     </div>
   );
 }
