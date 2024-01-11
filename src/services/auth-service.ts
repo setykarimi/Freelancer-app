@@ -34,5 +34,5 @@ export function completeProfile(data: any) {
 }
 
 export function getUser() {
-  return http.post("/user/profile").then(({ data }) => data.data);
+  return http.get("/user/profile").then(({ data }) => data.data);
 }
