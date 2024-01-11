@@ -1,5 +1,5 @@
 import Loading from "@common/loading";
-import ProjectHeader from "@features/project/proposal/header";
+import ProjectHeader from "@features/project/header";
 import ProjectProposal from "@features/project/proposal/table";
 import useProject from "@hook/use-project";
 
