@@ -8,6 +8,7 @@
       "@pages/*": ["./pages/*"],
       "@services/*": ["./services/*"],
       "@utils/*": ["./utils/*"],
+      "@context/*": ["./context/*"],
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
