@@ -1,4 +1,5 @@
 import Layout from "@common/layout";
+import { DarkModeProvider } from "@context/dark-mode";
 import AuthPage from "@pages/auth";
 import CompleteProfile from "@pages/complete-profile";
 import Owner from "@pages/dashboard/owner";
@@ -11,19 +12,21 @@ import { Navigate, Route, Routes } from "react-router-dom";
 function App() {
   const queryClient = new QueryClient();
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <Routes>
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/complete-profile" element={<CompleteProfile />} />
-        <Route path="/owner" element={<Layout />}>
-          <Route index element={<Navigate to="dashboard" replace />} />
-          <Route path="dashboard" element={<Owner />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="projects/:id" element={<Project />} />
-        </Route>
-      </Routes>
-    </QueryClientProvider>
+    <DarkModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <Toaster />
+        <Routes>
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/complete-profile" element={<CompleteProfile />} />
+          <Route path="/owner" element={<Layout />}>
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<Owner />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="projects/:id" element={<Project />} />
+          </Route>
+        </Routes>
+      </QueryClientProvider>
+    </DarkModeProvider>
   );
 }
 
