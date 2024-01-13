@@ -1,12 +1,13 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/header";
-import Sidebar from "./components/sidebar";
 
-export default function Layout() {
+export default function AppLayout({ children }: { children?: React.ReactNode }) {
   return (
     <div className="grid lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr] h-full">
       <Navbar />
-      <Sidebar />
+      {/* <Sidebar /> */}
+      {children}
       <div className="bg-secondary-100 p-8 overflow-y-auto h-full">
         <div className="mx-auto max-w-screen-lg flex flex-col gap-y-12">
           <Outlet />

@@ -1,5 +1,5 @@
-import Layout from "@common/layout";
 import { DarkModeProvider } from "@context/dark-mode";
+import OwnerLayout from "@features/layout/owner/layout";
 import AuthPage from "@pages/auth";
 import CompleteProfile from "@pages/complete-profile";
 import Owner from "@pages/dashboard/owner";
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/complete-profile" element={<CompleteProfile />} />
-          <Route path="/owner" element={<Layout />}>
+          <Route path="/owner" element={<OwnerLayout />}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Owner />} />
             <Route path="projects" element={<Projects />} />
