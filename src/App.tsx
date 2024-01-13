@@ -1,5 +1,5 @@
 import { DarkModeProvider } from "@context/dark-mode";
-import OwnerLayout from "@features/layout/owner/layout";
+import OwnerLayout from "@features/owner/layout";
 import AuthPage from "@pages/auth";
 import CompleteProfile from "@pages/complete-profile";
 import Owner from "@pages/dashboard/owner";
