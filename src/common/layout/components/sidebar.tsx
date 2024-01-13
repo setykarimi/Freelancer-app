@@ -1,24 +1,19 @@
 import useOutSideClick from "@hook/use-outside-click";
-import { useState } from "react";
-import { HiDocumentText, HiHome, HiMenu } from "react-icons/hi";
+import React, { useState } from "react";
+import { HiMenu } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({
+  menuList,
+}: {
+  menuList: {
+    name: string;
+    to: string;
+    icon: React.ReactNode;
+  }[];
+}) {
   const [open, setOpen] = useState<boolean>(false);
   const ref = useOutSideClick(() => setOpen(false));
-
-  const menuList = [
-    {
-      name: "خانه",
-      to: "/owner/dashboard",
-      icon: <HiHome size={20} />,
-    },
-    {
-      name: "پروژه‌ها",
-      to: "/owner/projects",
-      icon: <HiDocumentText size={20} />,
-    },
-  ];
 
   const navClassName = "w-full flex gap-2 p-2 rounded-xl";
 
