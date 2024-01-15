@@ -1,7 +1,9 @@
-import React from 'react'
+import SubmittedProjectTable from "@features/freelancer/project/table";
 
 export default function SubmittedProjects() {
   return (
-    <div>SubmittedProjects</div>
-  )
+    <div>
+      <SubmittedProjectTable />
+    </div>
+  );
 }
