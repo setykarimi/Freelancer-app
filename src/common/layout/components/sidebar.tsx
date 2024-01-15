@@ -29,7 +29,7 @@ export default function Sidebar({
         <HiMenu size={20} />
       </button>
       <ul
-        className={`space-y-2 lg:block lg:static fixed right-0 top-8 bg-white lg:w-full w-1/2 h-full ${
+        className={`space-y-2 lg:block lg:static fixed right-0 top-8 bg-secondary-0 lg:w-full w-1/2 h-full ${
           open ? "block" : "hidden"
         } p-4`}
       >
