@@ -1,7 +1,7 @@
 import Loading from "@common/loading";
 import useProposals from "@hook/use-proposals";
-import DashboardHeader from "./dashboard-header";
 import Stats from "./stats";
+import DashboardHeader from "@features/owner/dashboard-header";
 
 export default function DashboardLayout() {
   const { isLoading, proposals } = useProposals();
