@@ -1,5 +1,6 @@
 import TextField from "@common/form/text-field";
 import Loading from "@common/loading";
+import useCreateProposal from "@hook/use-create-proposal";
 import { useForm } from "react-hook-form";
 
 export default function CreateProposal({
@@ -9,16 +10,27 @@ export default function CreateProposal({
   onClose: () => void;
   projectId: string;
 }) {
+  const { createProposal, isCreating } = useCreateProposal();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (values) => {
+  const onSubmit = (values: any) => {
     console.log(values);
-    
-  }
+    createProposal(
+      {
+        ...values,
+        projectId,
+      },
+      {
+        onSuccess: () => {
+          onClose();
+        },
+      }
+    );
+  };
   return (
     <div>
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
