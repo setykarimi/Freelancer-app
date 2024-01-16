@@ -13,3 +13,10 @@ export function getProposalsApi(): Promise<any> {
     .then(({ data }) => data.data)
     .catch((error) => Promise.reject(error));
 }
+
+export function createProposalApi(postData: any): Promise<any> {
+  return http
+    .post(`/proposal/add`, postData)
+    .then(({ data }) => data.data)
+    .catch((error) => Promise.reject(error));
+}
