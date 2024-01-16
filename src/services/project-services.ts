@@ -32,14 +32,15 @@ export function toggleProjectStatusApi({ id, postData }: any): Promise<any> {
     .catch((error) => Promise.reject(error));
 }
 
-export function getProjectApi(id:string | undefined): Promise<any> {
+export function getProjectApi(id: string | undefined): Promise<any> {
   return http
     .get(`/project/${id}`)
     .then(({ data }) => data.data)
     .catch((error) => Promise.reject(error));
 }
 
-
-export function getProjectsApi() {
-  return http.get("/project/list").then(({ data }) => data.data);
+export function getProjectsApi(qs:string): Promise<any> {
+  return http.get(`/project/list${qs}`).then(({ data }) => {
+    return data.data;
+  }).catch((error)=>Promise.reject(error))
 }
