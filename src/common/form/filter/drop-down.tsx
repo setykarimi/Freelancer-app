@@ -1,17 +1,29 @@
 import { useSearchParams } from "react-router-dom";
 
-export default function FilterDropDown({ options, filterField }) {
-  // const { searchParams, setSearchParams } = useSearchParams();
-  // const category = searchParams.get(filterField) || "";
+export default function FilterDropDown({
+  options,
+  filterField,
+}: {
+  options: any[];
+  filterField: any;
+}) {
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filterValue = searchParams.get(filterField) || "";
 
-  function handleChange(){
-    // setSearchParams.set(filterField, e.target.value)
-    // setSearchParams(searchParams)
+  function handleChange(e: any) {
+    searchParams.set(filterField, e.target.value);
+    setSearchParams(searchParams);
   }
+
   return (
-    <select value={filterField} onChange={handleChange} className="textField__input py-2 text-xs">
+    <select
+      value={filterField}
+      onChange={handleChange}
+      className="textField__input py-2 text-xs bg-secondary-0"
+    >
       {options.map((item) => (
-        <option key={item.value} value={item.value}>
+        <option key={item.value} value={filterValue}>
           {item.label}
         </option>
       ))}
