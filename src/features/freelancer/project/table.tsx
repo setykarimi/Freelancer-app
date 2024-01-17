@@ -1,15 +1,12 @@
+import FilterDropDown from "@common/form/filter/drop-down";
 import Loading from "@common/loading";
 import Table from "@common/table";
 import useCategories from "@hook/use-categories";
 import useProjects from "@hook/use-projects";
 import SubmittedProjectTableRow from "./row";
-import FilterDropDown from "@common/form/filter/drop-down";
 
 export default function SubmittedProjectTable() {
   const { isLoading, projects } = useProjects();
-  // if (isLoading) return <Loading />;
-
-  // if (!projects.length) return <h3>یافت نشد</h3>;
 
   const { newCategories } = useCategories();
   return (
@@ -20,9 +17,19 @@ export default function SubmittedProjectTable() {
             <h1 className="text-lg font-bold">لیست پروژه‌ها</h1>
             <div>
               <FilterDropDown
-          filterField="category"
-          options={[{ value: "ALL", label: "همه" }, ...newCategories]}
-        />
+                filterField="category"
+                options={[{ value: "ALL", label: "همه" }, ...newCategories]}
+              />
+              <FilterDropDown
+                filterField=""
+                options={[
+                  { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
+                  {
+                    value: "earliest",
+                    label: "مرتب‌سازی (قدیمی‌ترین)",
+                  },
+                ]}
+              />
             </div>
           </div>
           <Table>
