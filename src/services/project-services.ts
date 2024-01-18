@@ -39,7 +39,7 @@ export function getProjectApi(id: string | undefined): Promise<any> {
     .catch((error) => Promise.reject(error));
 }
 
-export function getProjectsApi(qs:string): Promise<any> {
+export function getProjectsApi(qs:any): Promise<any> {
   return http.get(`/project/list${qs}`).then(({ data }) => {
     return data.data;
   }).catch((error)=>Promise.reject(error))
