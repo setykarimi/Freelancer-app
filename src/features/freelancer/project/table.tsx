@@ -4,6 +4,22 @@ import Table from "@common/table";
 import useCategories from "@hook/use-categories";
 import useProjects from "@hook/use-projects";
 import SubmittedProjectTableRow from "./row";
+import StatusFilter from "@common/form/filter/status-tab";
+
+const statusOptions = [
+  {
+    label: "همه",
+    value: "",
+  },
+  {
+    label: "باز",
+    value: "OPEN",
+  },
+  {
+    label: "بسته",
+    value: "CLOSED",
+  },
+];
 
 export default function SubmittedProjectTable() {
   const { isLoading, projects } = useProjects();
@@ -15,7 +31,8 @@ export default function SubmittedProjectTable() {
         <>
           <div className="flex items-center justify-between text-secondary-700 mb-8">
             <h1 className="text-lg font-bold">لیست پروژه‌ها</h1>
-            <div>
+            <div className="flex items-center">
+              <StatusFilter filterField="status" options={statusOptions} />
               <FilterDropDown
                 filterField="category"
                 options={[{ value: "ALL", label: "همه" }, ...newCategories]}
