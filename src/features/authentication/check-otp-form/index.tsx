@@ -38,6 +38,7 @@ export default function CheckOTPForm({
       }
       if (user.role == "OWNER") return navigate("/owner");
       if (user.role == "FREELANCER") return navigate("/freelancer");
+      if (user.role == "ADMIN") return navigate("/admin");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
