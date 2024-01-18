@@ -35,10 +35,10 @@ export default function SubmittedProjectTable() {
               <StatusFilter filterField="status" options={statusOptions} />
               <FilterDropDown
                 filterField="category"
-                options={[{ value: "ALL", label: "همه" }, ...newCategories]}
+                options={[{ value: "", label: "همه" }, ...newCategories]}
               />
               <FilterDropDown
-                filterField=""
+                filterField="sort"
                 options={[
                   { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
                   {
