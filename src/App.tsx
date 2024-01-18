@@ -1,3 +1,4 @@
+import ProtectedRoute from "@common/protected-route";
 import { DarkModeProvider } from "@context/dark-mode";
 import FreelancerLayout from "@features/freelancer/layout";
 import OwnerLayout from "@features/owner/layout";
@@ -22,18 +23,33 @@ function App() {
         <Routes>
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/complete-profile" element={<CompleteProfile />} />
-          <Route path="/freelancer" element={<FreelancerLayout />}>
+          <Route
+            path="/freelancer"
+            element={
+              <ProtectedRoute>
+                <FreelancerLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<FreelancerProposals />} />
             <Route path="projects" element={<SubmittedProjects />} />
           </Route>
-          <Route path="/owner" element={<OwnerLayout />}>
+          <Route
+            path="/owner"
+            element={
+              <ProtectedRoute>
+                <OwnerLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Owner />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
           </Route>
+          <Route path="*" element={<h1>صفحه‌ای که دنبالش هستید یافت نشد</h1>} />
         </Routes>
       </QueryClientProvider>
     </DarkModeProvider>
