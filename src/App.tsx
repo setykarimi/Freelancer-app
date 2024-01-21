@@ -1,10 +1,10 @@
 import ProtectedRoute from "@common/protected-route";
 import { DarkModeProvider } from "@context/dark-mode";
-import AdminDashboard from "@features/admin/dashboard";
 import AdminLayout from "@features/admin/layout";
 import FreelancerLayout from "@features/freelancer/layout";
 import OwnerLayout from "@features/owner/layout";
 import AdminDashboardPage from "@pages/admin/dashboard";
+import AdminUsers from "@pages/admin/users";
 import AuthPage from "@pages/auth";
 import CompleteProfile from "@pages/complete-profile";
 import Owner from "@pages/dashboard/owner";
@@ -60,9 +60,10 @@ function App() {
               </ProtectedRoute>
             }
           >
-             <Route index element={<Navigate to="dashboard" replace />} />
+            <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboardPage />} />
-            </Route>
+            <Route path="users" element={<AdminUsers />} />
+          </Route>
           <Route path="*" element={<h1>صفحه‌ای که دنبالش هستید یافت نشد</h1>} />
         </Routes>
       </QueryClientProvider>
