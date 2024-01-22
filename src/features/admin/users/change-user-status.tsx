@@ -1,6 +1,7 @@
 import RHFSelect from "@common/form/rhf-select";
 import Loading from "@common/loading";
 import useChangeProposalStatus from "@hook/use-change-proposal-status";
+import useChangeUserStatus from "@hook/use-change-user-status";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
@@ -28,13 +29,13 @@ export default function ChangeUserStatus({
   onClose: () => void;
 }) {
   const { register, handleSubmit } = useForm();
-  const { changeProposalStatus, isEditing } = useChangeProposalStatus();
+  const { changeUserStatus, isEditing } = useChangeUserStatus();
   const queryClient = useQueryClient();
 
   const onSubmit = (values: any) => {
-    changeProposalStatus(
+    changeUserStatus(
       {
-        id: userId,
+        userId: userId,
         postData: {
           status: +values.status,
         },
