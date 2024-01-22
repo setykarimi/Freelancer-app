@@ -8,6 +8,8 @@ export default function useAuthorize() {
 
   let isAuthenticated = false;
   let isAuthorized = false;
+  let isVerfied = false;
+  if (user?.status === 2) isVerfied = true;
 
   const ROLES: any = {
     admin: "ADMIN",
@@ -22,5 +24,5 @@ export default function useAuthorize() {
     if (user && user.role == ROLES[desiredRole]) isAuthorized = true;
   }
 
-  return { isLoading, isAuthorized, isAuthenticated };
+  return { isLoading, isAuthorized, isAuthenticated , isVerfied};
 }
