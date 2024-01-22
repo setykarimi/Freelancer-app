@@ -63,6 +63,9 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboardPage />} />
             <Route path="users" element={<AdminUsers />} />
+            <Route path="projects" element={<SubmittedProjects />} />
+            <Route path="proposals
+            " element={<FreelancerProposals />} />
           </Route>
           <Route path="*" element={<h1>صفحه‌ای که دنبالش هستید یافت نشد</h1>} />
         </Routes>
