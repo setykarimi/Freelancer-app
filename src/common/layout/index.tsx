@@ -4,7 +4,7 @@ import Navbar from "./components/header";
 
 export default function AppLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="grid lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr] h-full">
+    <div className="grid lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr] h-screen">
       <Navbar />
       {/* <Sidebar /> */}
       {children}
