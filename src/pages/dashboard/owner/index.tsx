@@ -1,5 +1,19 @@
-import OwnerDashboard from "@features/owner/owner-dashboard";
+import Loading from "@common/loading";
+import DashboardHeader from "@features/dashboard/header";
+import Stats from "@features/dashboard/stats";
+import useOwnerProjects from "@hook/use-owner-projects";
 
-export default function Owner() {
-  return <OwnerDashboard />;
+export default function OwnerDashboard() {
+  const { isLoading, projects } = useOwnerProjects();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return (
+    <>
+      <DashboardHeader />
+      <Stats projects={projects} />
+    </>
+  );
 }

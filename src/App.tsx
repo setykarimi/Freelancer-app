@@ -7,12 +7,12 @@ import AdminDashboardPage from "@pages/admin/dashboard";
 import AdminUsers from "@pages/admin/users";
 import AuthPage from "@pages/auth";
 import CompleteProfile from "@pages/complete-profile";
-import Owner from "@pages/dashboard/owner";
 import FreelancerDashboard from "@pages/dashboard/freelancer";
 import SubmittedProjects from "@pages/dashboard/freelancer/projects";
 import FreelancerProposals from "@pages/dashboard/freelancer/proposals";
-import Project from "@pages/project";
-import Projects from "@pages/projects";
+import OwnerDashboard from "@pages/dashboard/owner";
+import Project from "@pages/dashboard/owner/project";
+import Projects from "@pages/dashboard/owner/projects";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -48,7 +48,7 @@ function App() {
             }
           >
             <Route index element={<Navigate to="dashboard" replace />} />
-            <Route path="dashboard" element={<Owner />} />
+            <Route path="dashboard" element={<OwnerDashboard />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
           </Route>

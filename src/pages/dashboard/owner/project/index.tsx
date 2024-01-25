@@ -10,9 +10,9 @@ export default function Project() {
   }
 
   return (
-    <div>
+    <>
       <ProjectHeader project={project} />
       <ProjectProposal proposal={project?.proposals} />
-    </div>
+    </>
   );
 }
