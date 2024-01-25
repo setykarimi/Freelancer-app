@@ -1,5 +1,5 @@
 import useOwnerProjects from "@hook/use-owner-projects";
-import DashboardHeader from "./dashboard-header";
+import DashboardHeader from "../dashboard/header";
 import Stats from "./stats";
 import Loading from "@common/loading";
 

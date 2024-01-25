@@ -1,4 +1,4 @@
-import ProposalTable from "@features/proposals/table";
+import ProposalTable from "@features/dashboard/freelancer/proposals/table";
 
 export default function FreelancerProposals() {
   return (

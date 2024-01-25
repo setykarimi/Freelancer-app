@@ -3,7 +3,7 @@ import useProjects from "@hook/use-projects";
 import useProposals from "@hook/use-proposals";
 import useUsers from "@hook/use-users";
 import DashboardHeader from "./components/header";
-import Stats from "../stats";
+import Stats from "../../dashboard/stats";
 
 export default function AdminDashboard() {
   const { isLoading: isLoading1, proposals } = useProposals();

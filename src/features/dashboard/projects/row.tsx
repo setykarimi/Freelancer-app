@@ -1,6 +1,6 @@
 import Modal from "@common/modal";
 import Table from "@common/table";
-import CreateProposal from "@features/proposals/create-proposal";
+import CreateProposal from "@features/dashboard/freelancer/proposals/create-proposal";
 import toLocalDateShort from "@utils/to-local-date-short";
 import { toPersianNumbersWithComma } from "@utils/to-persian-numbers";
 import truncateText from "@utils/truncate-text";
