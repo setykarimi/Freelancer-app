@@ -1,7 +1,8 @@
 import useLocalStorageState from "@hook/use-local-storage-state";
 import React, { createContext, useContext, useEffect } from "react";
 
-const DarkModeContext = createContext();
+type ThemeContextType = false | true;
+const DarkModeContext = createContext<ThemeContextType>(false);
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
 
