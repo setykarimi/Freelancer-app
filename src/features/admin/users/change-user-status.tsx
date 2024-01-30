@@ -1,10 +1,8 @@
 import RHFSelect from "@common/form/rhf-select";
 import Loading from "@common/loading";
-import useChangeProposalStatus from "@hook/use-change-proposal-status";
 import useChangeUserStatus from "@hook/use-change-user-status";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
 
 const options = [
   {
