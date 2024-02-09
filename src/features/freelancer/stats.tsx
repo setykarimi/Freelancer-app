@@ -9,10 +9,9 @@ import {
 export default function Stats({ proposals }: { proposals: any }) {
   const numOfProposals = proposals.length;
   const acceptedProposals = proposals.filter((p: any) => p.status === 2).length;
-  const balance = 0;
-  // acceptedProposals
-  //   ? acceptedProposals?.reduce((acc, curr) => acc + curr.price, 0)
-  //   : 0;
+  const balance = acceptedProposals
+    ? acceptedProposals?.reduce((acc: number, curr: any) => acc + curr.price, 0)
+    : 0;
 
   return (
     <div className="grid md:grid-cols-3 gap-x-8">
