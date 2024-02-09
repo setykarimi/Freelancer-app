@@ -10,7 +10,7 @@ export default function CreateProposal({
   onClose: () => void;
   projectId: string;
 }) {
-  const { createProposal, isCreating } = useCreateProposal();
+  const { createProposal } = useCreateProposal();
   const {
     register,
     handleSubmit,
