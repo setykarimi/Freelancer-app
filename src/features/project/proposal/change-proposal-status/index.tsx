@@ -30,12 +30,12 @@ export default function ChangeProposalStatus({
     const {id} = useParams()
   const { register, handleSubmit } = useForm();
 
-  const { changeProposalStatus, isEditing } = useChangeProposalStatus();
+  const { changeUserStatus, isEditing } = useChangeProposalStatus();
   const queryClient = useQueryClient();
 
   const onSubmit = (values: any) => {
     console.log(values);
-    changeProposalStatus(
+    changeUserStatus(
       {
         id: proposalId,
         postData: {
