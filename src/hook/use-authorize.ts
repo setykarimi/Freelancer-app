@@ -4,7 +4,7 @@ import useUser from "./use-user";
 export default function useAuthorize() {
   const { isLoading, user } = useUser();
 
-  const { pathname } = useLocation();
+  const { pathname }: { pathname: any } = useLocation();
 
   let isAuthenticated = false;
   let isAuthorized = false;
@@ -24,5 +24,5 @@ export default function useAuthorize() {
     if (user && user.role == ROLES[desiredRole]) isAuthorized = true;
   }
 
-  return { isLoading, isAuthorized, isAuthenticated , isVerfied};
+  return { isLoading, isAuthorized, isAuthenticated, isVerfied };
 }
