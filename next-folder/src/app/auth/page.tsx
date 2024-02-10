@@ -1,4 +1,6 @@
 "use client";
+import CheckOTPForm from "@/features/authentication/check-otp";
+import SendOTPForm from "@/features/authentication/send-otp";
 import useUser from "@/hooks/authentication/use-user";
 import { getOtp } from "@/services/auth-service";
 import { useMutation } from "@tanstack/react-query";
@@ -43,5 +45,30 @@ export default function AuthPage() {
     getValues,
   } = useForm();
 
-  return <div>AuthPage</div>;
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <SendOTPForm
+            isSendingOtp={isSendingOtp}
+            onSubmit={handleSubmit(sendOtpHandler)}
+            register={register}
+            errors={errors}
+          />
+        );
+      case 2:
+        return (
+          <CheckOTPForm
+            onBack={() => setStep((prev) => prev - 1)}
+            onResendOtp={sendOtpHandler}
+            otpResponse={otpResponse}
+            phoneNumber={getValues("phoneNumber")}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  return renderStep();
 }
