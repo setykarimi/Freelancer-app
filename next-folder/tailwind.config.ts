@@ -1,47 +1,61 @@
-import type { Config } from "tailwindcss";
+/** @type {import('tailwindcss').Config} */
+import tailwindFormPlugin from "@tailwindcss/forms";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
+function withOpacity(variableName: string) {
+  return ({ opacityValue }: { opacityValue: number }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
 
-
-const config: Config = {
-  content: [
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      primary: {
-        900: "--color-primary-900",
-        800: "--color-primary-800",
-        700: "--color-primary-700",
-        600: "--color-primary-600",
-        500: "--color-primary-500",
-        400: "--color-primary-400",
-        300: "--color-primary-300",
-        200: "--color-primary-200",
-        100: "--color-primary-100",
+    extend: {
+      fontFamily: {
+        sans: ["Vazir", ...fontFamily.sans],
       },
-      secondary: {
-        900: "--color-secondary-900",
-        800: "--color-secondary-800",
-        700: "rgba(var(--color-secondary-700))",
-        600: "--color-secondary-600",
-        500: "--color-secondary-500",
-        400: "--color-secondary-400",
-        300: "--color-secondary-300",
-        200: "--color-secondary-200",
-        100: "--color-secondary-100",
-        50: "--color-secondary-50",
-        0: "--color-secondary-0",
+      colors: {
+        primary: {
+          900: withOpacity("--color-primary-900"),
+          800: withOpacity("--color-primary-800"),
+          700: withOpacity("--color-primary-700"),
+          600: withOpacity("--color-primary-600"),
+          500: withOpacity("--color-primary-500"),
+          400: withOpacity("--color-primary-400"),
+          300: withOpacity("--color-primary-300"),
+          200: withOpacity("--color-primary-200"),
+          100: withOpacity("--color-primary-100"),
+        },
+        secondary: {
+          900: withOpacity("--color-secondary-900"),
+          800: withOpacity("--color-secondary-800"),
+          700: withOpacity("--color-secondary-700"),
+          600: withOpacity("--color-secondary-600"),
+          500: withOpacity("--color-secondary-500"),
+          400: withOpacity("--color-secondary-400"),
+          300: withOpacity("--color-secondary-300"),
+          200: withOpacity("--color-secondary-200"),
+          100: withOpacity("--color-secondary-100"),
+          50: withOpacity("--color-secondary-50"),
+          0: withOpacity("--color-secondary-0"),
+        },
+        success: withOpacity("--color-success"),
+        warning: withOpacity("--color-warning"),
+        error: withOpacity("--color-error"),
       },
-      success: "--color-success",
-      warning: "--color-warning",
-      error: "rgba(var(--color-error))",
-    },
-    container: {
-      center: true,
-      padding: "1rem",
+      container: {
+        center: true,
+        padding: "1rem",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    tailwindFormPlugin({
+      strategy: "class",
+    }),
+  ],
 };
-export default config;
