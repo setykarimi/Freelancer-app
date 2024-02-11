@@ -36,9 +36,8 @@ export default function CheckOTPForm({
         toast("پروفایل شما در انتظار تایید است.", { icon: "👏🏻" });
         return;
       }
-      if (user.role == "OWNER") return router.push("/owner");
-      if (user.role == "FREELANCER") return router.push("/freelancer");
-      if (user.role == "ADMIN") return router.push("/admin");
+      const role_panel = user.role.toLowerCase();
+      return router.push(role_panel);
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
@@ -72,7 +71,7 @@ export default function CheckOTPForm({
       )}
       <div className="mb-4 text-secondary-500">
         {time > 0 ? (
-          <p>{time} ارسال مجدد کد</p>
+          <p className="text-sm">{time} ثانیه ارسال مجدد کد</p>
         ) : (
           <button onClick={onResendOtp}>ارسال مجدد کد تایید</button>
         )}

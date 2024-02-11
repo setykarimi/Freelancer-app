@@ -9,29 +9,25 @@ export default function SendOTPForm({
   errors,
 }: SendOTPFormPropTypes) {
   return (
-    <div>
-      <form className=" space-y-4" onSubmit={onSubmit}>
-        <TextField
-          register={register}
-          errors={errors}
-          validationSchema={{
-            required: "شماره تماس الزامی است.",
-          }}
-          label="شماره موبایل"
-          name="phoneNumber"
-          required
-        />
+    <form className="space-y-2" onSubmit={onSubmit}>
+      <TextField
+        register={register}
+        errors={errors}
+        validationSchema={{
+          required: "شماره تماس الزامی است.",
+        }}
+        label="شماره موبایل"
+        name="phoneNumber"
+        required
+      />
 
-        <div>
-          {isSendingOtp ? (
-            <Loading />
-          ) : (
-            <button type="submit" className="btn btn--primary w-full">
-              ارسال کد تایید
-            </button>
-          )}
-        </div>
-      </form>
-    </div>
+      {isSendingOtp ? (
+        <Loading />
+      ) : (
+        <button type="submit" className="btn btn--primary w-full">
+          ارسال کد تایید
+        </button>
+      )}
+    </form>
   );
 }
