@@ -33,7 +33,6 @@ export default function AuthPage() {
       toast.success(data?.message);
     } catch (error: any) {
       const err_msg = error.response.data.message;
-
       toast.error(err_msg ? err_msg : "متاسفانه خطایی رخ داده است.");
     }
   };
