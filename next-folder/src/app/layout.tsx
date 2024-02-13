@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body className="container p-4 flex flex-col justify-center items-center">
+    <html lang="fa" dir="rtl" className="bg-secondary-100">
+      <body className="flex flex-col justify-center items-center bg-transparent">
         <Provider>{children}</Provider>
       </body>
     </html>
