@@ -57,26 +57,28 @@ export default function CheckOTPForm({
   }, []);
 
   return (
-    <div>
+    <div className="">
       <button onClick={onBack} className="w-6 h-6 text-secondary-500">
         <HiArrowRight />
       </button>
       {otpResponse && (
-        <p className="flex items-center gap-x-2 my-4">
-          <span> {otpResponse?.message} </span>
-          <button onClick={onBack} className="w-6 h-6 text-secondary-500">
+        <p className="flex items-center my-4">
+          <span className="text-sm font-medium text-secondary-600"> {otpResponse?.message} </span>
+          <button onClick={onBack} className="w-4 h-4 text-secondary-500 mr-2">
             <CiEdit />
           </button>
         </p>
       )}
-      <div className="mb-4 text-secondary-500">
+      <div className="mb-4 text-secondary-500 flex flex-col">
         {time > 0 ? (
-          <p className="text-sm">{time} ثانیه ارسال مجدد کد</p>
+          <p className="text-xs text-center">
+            <span className="font-bold">{time}{" "}</span>
+             ثانیه تا ارسال مجدد کد</p>
         ) : (
-          <button onClick={onResendOtp}>ارسال مجدد کد تایید</button>
+          <button onClick={onResendOtp} className="mx-auto text-center text-primary-700 font-bold text-sm underline">ارسال مجدد کد تایید</button>
         )}
       </div>
-      <form className="space-y-10" onSubmit={checkOtpHandler}>
+      <form className="space-y-4 mt-8" onSubmit={checkOtpHandler}>
         <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
         <OTPInput
           value={otp}
@@ -86,10 +88,11 @@ export default function CheckOTPForm({
           renderInput={(props) => <input {...props} />}
           containerStyle="flex flex-row-reverse gap-x-2 justify-center"
           inputStyle={{
-            width: "2.5rem",
+            width: "2rem",
+            height: "2rem",
             padding: ".5rem .2rem",
             border: "1px solid rgb(var(--color-primary-300))",
-            borderRadius: ".5rem",
+            borderRadius: ".4rem",
           }}
         />
         {isPending ? (
