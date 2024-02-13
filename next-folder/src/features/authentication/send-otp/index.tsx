@@ -9,7 +9,7 @@ export default function SendOTPForm({
   errors,
 }: SendOTPFormPropTypes) {
   return (
-    <form className="space-y-2" onSubmit={onSubmit}>
+    <form className="space-y-4" onSubmit={onSubmit}>
       <TextField
         register={register}
         errors={errors}
