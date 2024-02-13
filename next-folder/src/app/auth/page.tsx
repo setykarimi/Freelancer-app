@@ -5,7 +5,7 @@ import useUser from "@/hooks/authentication/use-user";
 import { getOtp } from "@/services/auth-service";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -14,9 +14,9 @@ export default function AuthPage() {
   const { user } = useUser();
   const router = useRouter();
 
-  useEffect(() => {
-    if (user) router.replace("/");
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) router.replace("/");
+  // }, [user]);
 
   const {
     isPending: isSendingOtp,
@@ -69,5 +69,9 @@ export default function AuthPage() {
     }
   };
 
-  return renderStep();
+  return (
+    <div className=" bg-secondary-0 max-w-sm w-full p-8 rounded-lg shadow-secondary-200 shadow">
+      {renderStep()}
+    </div>
+  );
 }
