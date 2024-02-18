@@ -1,6 +1,7 @@
 "use client";
 import useOutSideClick from "@/hooks/other/use-outside-click";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 
@@ -17,6 +18,7 @@ export default function Sidebar() {
       icon: <HiMenu />,
     },
   ];
+  const pathname = usePathname();
 
   return (
     <div
@@ -38,12 +40,11 @@ export default function Sidebar() {
           <li>
             <Link
               href={to}
-              className={`bg-primary-100/50 text-primary-800 font-bold ${navClassName}`}
-              //   className={({ isActive }) => {
-              //     return isActive
-              //       ? `bg-primary-100/50 text-primary-800 font-bold ${navClassName}`
-              //       : `${navClassName} text-secondary-600`;
-              //   }}
+              className={`bg-primary-100/50 text-primary-800 font-bold ${navClassName} ${
+                pathname.startsWith(to) &&
+                "bg-primary-100/50 text-primary-800 font-bold"
+              }
+              `}
             >
               {icon}
               {name}
