@@ -1,9 +1,5 @@
 import http from "./http-service";
 
-export function getUser() {
-  return http.get("/user/profile").then(({ data }) => data.data);
-}
-
 interface getOtpDataType {
   phoneNumber: string;
 }
@@ -29,4 +25,28 @@ export function checkOtp(data: checkOtpDataType): Promise<any> {
     .catch((error) => {
       return Promise.reject(error);
     });
+}
+
+export function completeProfile(data: any) {
+  return http
+    .post("/user/complete-profile", data)
+    .then(({ data }) => data.data);
+}
+
+export function getUser() {
+  return http.get("/user/profile").then(({ data }) => data.data);
+}
+
+export function logoutApi() {
+  return http.post("/user/logout").then(({ data }) => data.data);
+}
+
+export function getUsersApi() {
+  return http.get("/admin/user/list").then(({ data }) => data.data);
+}
+
+export function changeUserStatusApi({ userId, postData }: any) {
+  return http
+    .patch(`/admin/user/verify/${userId}`, postData)
+    .then(({ data }) => data.data);
 }
