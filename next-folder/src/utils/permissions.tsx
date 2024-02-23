@@ -14,7 +14,7 @@ const permissions = {
     },
     {
       name: "پروژه‌ها",
-      to: "projects",
+      to: "/dashboard/admin/all-projects",
       icon: <HiCollection size={20} />,
     },
     {
