@@ -35,7 +35,7 @@ export default function Sidebar() {
         {permissions[role]?.map(({ name, to, icon }) => {
           const isActive = pathname == to;
           return (
-            <li>
+            <li key={name}>
               <Link
                 href={to}
                 className={
