@@ -9,7 +9,7 @@ const permissions = {
     },
     {
       name: "کاربران",
-      to: "users",
+      to: "/dashboard/admin/all-users",
       icon: <HiUser size={20} />,
     },
     {
