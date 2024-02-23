@@ -33,7 +33,7 @@ export default function Sidebar() {
         } p-4`}
       >
         {permissions[role]?.map(({ name, to, icon }) => {
-          const isActive = pathname.startsWith(to);
+          const isActive = pathname == to;
           return (
             <li>
               <Link
