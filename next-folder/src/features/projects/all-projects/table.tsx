@@ -1,10 +1,10 @@
 "use client";
+import StatusFilter from "@/common/form/filter/status-tab";
 import Loading from "@/common/loading";
 import Table from "@/common/table";
 import useCategories from "@/hooks/category/use-categories";
 import useProjects from "@/hooks/projects/use-projects";
 import AllProjectsRow from "./row";
-import StatusFilter from "@/common/form/filter/status-tab";
 
 const statusOptions = [
   {
@@ -21,8 +21,14 @@ const statusOptions = [
   },
 ];
 
-export default function AllProjectsTable() {
+export default function AllProjectsTable({
+  searchParams,
+}: {
+  searchParams: any;
+}) {
   const { isLoading, projects } = useProjects();
+  console.log("projects", projects);
+  
 
   const { newCategories } = useCategories();
   return (
@@ -30,7 +36,7 @@ export default function AllProjectsTable() {
       {!isLoading ? (
         <>
           <div className="flex items-center">
-            <StatusFilter filterField="status" options={statusOptions} />
+            <StatusFilter options={statusOptions} searchParams={searchParams} />
             {/* <FilterDropDown
                 filterField="category"
                 options={[{ value: "", label: "همه" }, ...newCategories]}
