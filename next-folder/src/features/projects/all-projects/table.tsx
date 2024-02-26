@@ -1,4 +1,5 @@
 "use client";
+import FilterDropDown from "@/common/form/filter/drop-down";
 import StatusFilter from "@/common/form/filter/status-tab";
 import Loading from "@/common/loading";
 import Table from "@/common/table";
@@ -27,30 +28,31 @@ export default function AllProjectsTable({
   searchParams: any;
 }) {
   const { isLoading, projects } = useProjects();
-  console.log("projects", projects);
-  
 
   const { newCategories } = useCategories();
+
   return (
     <>
       {!isLoading ? (
         <>
           <div className="flex items-center">
             <StatusFilter options={statusOptions} searchParams={searchParams} />
-            {/* <FilterDropDown
-                filterField="category"
-                options={[{ value: "", label: "همه" }, ...newCategories]}
-              /> */}
-            {/* <FilterDropDown
-                filterField="sort"
-                options={[
-                  { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
-                  {
-                    value: "earliest",
-                    label: "مرتب‌سازی (قدیمی‌ترین)",
-                  },
-                ]}
-              /> */}
+            <FilterDropDown
+              filterField="category"
+              options={[{ value: "", label: "همه" }, ...newCategories]}
+              searchParams={searchParams}
+            />
+            <FilterDropDown
+              searchParams={searchParams}
+              filterField="sort"
+              options={[
+                { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
+                {
+                  value: "earliest",
+                  label: "مرتب‌سازی (قدیمی‌ترین)",
+                },
+              ]}
+            />
           </div>
 
           <Table>
