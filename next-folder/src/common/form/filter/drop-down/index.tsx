@@ -1,22 +1,26 @@
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function FilterDropDown({
   options,
   filterField,
+  searchParams
 }: {
   options: any[];
   filterField: any;
+  searchParams: any
 }) {
   
-  const [searchParams, setSearchParams] = useSearchParams();
-  const filterValue = searchParams.get(filterField) || "";
-
+  const current_path = usePathname();
+  const router = useRouter();
+  
+  const filterValue = searchParams[filterField]
+  
   function handleChange(e: any) {
-    console.log(e.target.value);
     
-    searchParams.set(filterField, e.target.value);
-    setSearchParams(searchParams);
+    router.push(`${current_path}?status=${searchParams?.status}&${filterField}=${e.target.value}`);
   }
+
+  
 
   
 
