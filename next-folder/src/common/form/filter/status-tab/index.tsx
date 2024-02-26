@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function StatusFilter({
   options,
@@ -9,6 +8,11 @@ export default function StatusFilter({
   searchParams: any;
 }) {
   const current_path = usePathname();
+  const router = useRouter();
+
+  const clickHandler = (e: any) => {
+    router.push(`${current_path}?status=${e.target.value}`);
+  };
 
   return (
     <div className="flex items-center gap-x-2 text-xs">
@@ -17,11 +21,9 @@ export default function StatusFilter({
         {options.map(({ value, label }) => {
           const isActive = value === searchParams?.status || options[0].value;
           return (
-            <Link
-              href={{
-                pathname: current_path,
-                query: { status: value },
-              }}
+            <button
+              onClick={clickHandler}
+              value={value}
               className={`whitespace-nowrap rounded-md px-4 py-1 font-bold transition-all duration-300 text-xs ${
                 isActive
                   ? "bg-primary-900 text-white"
@@ -29,7 +31,7 @@ export default function StatusFilter({
               }`}
             >
               {label}
-            </Link>
+            </button>
           );
         })}
       </div>
