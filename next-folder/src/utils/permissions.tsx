@@ -48,7 +48,7 @@ const permissions = {
     },
     {
       name: "پروژه‌ها",
-      to: "/owner/projects",
+      to: "/dashboard/owner/projects",
       icon: <HiDocumentText size={20} />,
     },
   ],
