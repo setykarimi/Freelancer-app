@@ -19,7 +19,7 @@ const permissions = {
     },
     {
       name: "درخواست‌ها",
-      to: "proposals",
+      to: "/dashboard/admin/all-proposals",
       icon: <HiCollection size={20} />,
     },
   ],
