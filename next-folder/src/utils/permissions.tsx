@@ -43,7 +43,7 @@ const permissions = {
   OWNER: [
     {
       name: "خانه",
-      to: "/owner/dashboard",
+      to: "/dashboard/owner",
       icon: <HiHome size={20} />,
     },
     {
