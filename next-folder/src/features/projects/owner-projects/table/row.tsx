@@ -84,7 +84,7 @@ export default function ProjectRow({
           </div>
         </td>
         <td>
-          <Link href={project._id} className="flex justify-center items-center">
+          <Link href={`/dashboard/owner/project/${project._id}`} className="flex justify-center items-center">
             <HiEye className="text-primary-800 w-5 h-5"/>
           </Link>
         </td>
