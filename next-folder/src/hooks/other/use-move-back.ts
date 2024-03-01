@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function useMoveBack() {
   const router = useRouter();
-  return () => router.push(-1);
+  return () => router.back();
 }
