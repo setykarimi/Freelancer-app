@@ -5,7 +5,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-
 const options = [
   {
     label: "رد شده",
@@ -28,25 +27,24 @@ export default function ChangeProposalStatus({
   proposalId: string;
   onClose: () => void;
 }) {
-    const {id} = useParams()
+  const { id } = useParams();
   const { register, handleSubmit } = useForm();
 
   const { changeUserStatus, isEditing } = useChangeProposalStatus();
   const queryClient = useQueryClient();
 
   const onSubmit = (values: any) => {
-    console.log(values);
     changeUserStatus(
       {
         id: proposalId,
         postData: {
-            status: +values.status
+          status: +values.status,
         },
       },
       {
         onSuccess: () => {
           onClose();
-          queryClient.invalidateQueries({queryKey:["project", id]})
+          queryClient.invalidateQueries({ queryKey: ["project", id] });
         },
       }
     );
