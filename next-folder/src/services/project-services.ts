@@ -32,7 +32,7 @@ export function toggleProjectStatusApi({ id, postData }: any): Promise<any> {
     .catch((error) => Promise.reject(error));
 }
 
-export function getProjectApi(id: string | undefined): Promise<any> {
+export function getProjectApi(id: string | undefined | string[]): Promise<any> {
   return http
     .get(`/project/${id}`)
     .then(({ data }) => data.data)
