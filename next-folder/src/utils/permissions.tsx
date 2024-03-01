@@ -26,17 +26,17 @@ const permissions = {
   FREELANCER: [
     {
       name: "داشبورد",
-      to: "dashboard",
+      to: "/dashboard/freelancer",
       icon: <HiHome size={20} />,
     },
     {
       name: "پروژه‌ها",
-      to: "projects",
+      to: "/dashboard/freelancer/projects",
       icon: <HiCollection size={20} />,
     },
     {
       name: "درخواست‌ها",
-      to: "proposals",
+      to: "/dashboard/freelancer/proposals",
       icon: <HiCollection size={20} />,
     },
   ],
