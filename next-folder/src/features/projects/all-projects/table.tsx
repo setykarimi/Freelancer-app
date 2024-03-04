@@ -55,25 +55,29 @@ export default function AllProjectsTable({
             />
           </div>
 
-          <Table>
-            <Table.Header>
-              <th>#</th>
-              <th>عنوان پروژه</th>
-              <th>بودجه</th>
-              <th>ددلاین</th>
-              <th>وضعیت</th>
-              <th>عملیات</th>
-            </Table.Header>
-            <Table.Body>
-              {projects.map((project: any, index: number) => (
-                <AllProjectsRow
-                  key={project._id}
-                  project={project}
-                  index={index}
-                />
-              ))}
-            </Table.Body>
-          </Table>
+          {projects.length ? (
+            <Table>
+              <Table.Header>
+                <th>#</th>
+                <th>عنوان پروژه</th>
+                <th>بودجه</th>
+                <th>ددلاین</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+              </Table.Header>
+              <Table.Body>
+                {projects.map((project: any, index: number) => (
+                  <AllProjectsRow
+                    key={project._id}
+                    project={project}
+                    index={index}
+                  />
+                ))}
+              </Table.Body>
+            </Table>
+          ) : (
+            <span>پروژه‌ای یافت نشد</span>
+          )}
         </>
       ) : (
         <Loading />
