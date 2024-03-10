@@ -14,6 +14,13 @@ export function getProposalsApi(): Promise<any> {
     .catch((error) => Promise.reject(error));
 }
 
+export function getProposalApi(id: string | undefined | string[]): Promise<any> {
+  return http
+    .get(`/proposal/${id}`)
+    .then(({ data }) => data.data)
+    .catch((error) => Promise.reject(error));
+}
+
 export function createProposalApi(postData: any): Promise<any> {
   return http
     .post(`/proposal/add`, postData)
