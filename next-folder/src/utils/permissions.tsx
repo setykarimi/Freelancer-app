@@ -1,11 +1,13 @@
-import { HiCollection, HiDocumentText, HiHome, HiUser } from "react-icons/hi";
+import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
+import { GoHomeFill } from "react-icons/go";
+import { HiHome, HiUser } from "react-icons/hi";
 
 const permissions = {
   ADMIN: [
     {
       name: "داشبورد",
       to: "/dashboard/admin",
-      icon: <HiHome size={20} />,
+      icon: <GoHomeFill size={20} />,
     },
     {
       name: "کاربران",
@@ -15,41 +17,41 @@ const permissions = {
     {
       name: "پروژه‌ها",
       to: "/dashboard/admin/all-projects",
-      icon: <HiCollection size={20} />,
+      icon: <FaChartSimple size={20} />,
     },
     {
       name: "درخواست‌ها",
       to: "/dashboard/admin/all-proposals",
-      icon: <HiCollection size={20} />,
+      icon: <FaCodePullRequest size={20} />,
     },
   ],
   FREELANCER: [
     {
       name: "داشبورد",
       to: "/dashboard/freelancer",
-      icon: <HiHome size={20} />,
+      icon: <GoHomeFill size={20} />,
     },
     {
       name: "پروژه‌ها",
       to: "/dashboard/freelancer/projects",
-      icon: <HiCollection size={20} />,
+      icon: <FaChartSimple size={20} />,
     },
     {
       name: "درخواست‌ها",
       to: "/dashboard/freelancer/proposals",
-      icon: <HiCollection size={20} />,
+      icon: <FaCodePullRequest size={20} />,
     },
   ],
   OWNER: [
     {
-      name: "خانه",
+      name: "داشبورد",
       to: "/dashboard/owner",
-      icon: <HiHome size={20} />,
+      icon: <GoHomeFill size={20} />,
     },
     {
       name: "پروژه‌ها",
       to: "/dashboard/owner/projects",
-      icon: <HiDocumentText size={20} />,
+      icon: <FaChartSimple size={20} />,
     },
   ],
 };
