@@ -20,6 +20,7 @@ export default function AllProposalsTable() {
             <th>زمان تحویل</th>
             <th>هزینه</th>
             <th>وضعیت</th>
+            <th></th>
           </Table.Header>
           <Table.Body>
             {proposals.map((proposal: any, index: number) => (
