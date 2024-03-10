@@ -35,10 +35,11 @@ export default function FilterDropDown({
   }
 
   return (
-    <select
+   <div className="pl-2 textField__input bg-secondary-0">
+     <select
       value={filterValue}
       onChange={handleChange}
-      className="textField__input py-2 text-xs bg-secondary-0"
+      className="w-full text-xs bg-secondary-0"
       name={filterField}
     >
       {options.map((item) => (
@@ -47,5 +48,6 @@ export default function FilterDropDown({
         </option>
       ))}
     </select>
+   </div>
   );
 }
