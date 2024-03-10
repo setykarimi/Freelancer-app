@@ -4,6 +4,8 @@ import {
   toPersianNumbersWithComma,
 } from "@/utils/to-persian-numbers";
 import truncateText from "@/utils/truncate-text";
+import Link from "next/link";
+import { IoIosEye } from "react-icons/io";
 
 const statusStyle = [
   {
@@ -38,6 +40,11 @@ export default function ProposalRow({
           <span className={`badge ${statusStyle[proposal.status].className}`}>
             {statusStyle[proposal.status].label}
           </span>
+        </td>
+        <td>
+          <Link href={`/dashboard/freelancer/proposal/${proposal._id}`}>
+            <IoIosEye color="#fff" />
+          </Link>
         </td>
       </Table.Row>
     </>
