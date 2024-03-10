@@ -35,7 +35,7 @@ export default function AllProjectsTable({
     <>
       {!isLoading ? (
         <>
-          <div className="flex items-center">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 items-center">
             <StatusFilter options={statusOptions} searchParams={searchParams} />
             <FilterDropDown
               filterField="category"
