@@ -15,9 +15,9 @@ export default function StatusFilter({
   };
 
   return (
-    <div className="flex items-center gap-x-2 text-xs">
-      <span>وضعیت</span>
-      <div className="flex items-center gap-x-2 border border-secondary-100 bg-secondary-0 rounded-lg p-1">
+    <div className="flex items-center gap-x-2 text-xs w-full h-full">
+      <span className="text-secondary-900">وضعیت</span>
+      <div className="flex items-center gap-x-2 border border-secondary-100 bg-secondary-0 rounded-md p-1 w-full justify-between h-full">
         {options.map(({ value, label }) => {
           const isActive = value === searchParams?.status || options[0].value;
           return (
