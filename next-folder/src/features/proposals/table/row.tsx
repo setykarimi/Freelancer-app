@@ -43,7 +43,7 @@ export default function ProposalRow({
         </td>
         <td>
           <Link href={`/dashboard/freelancer/proposal/${proposal._id}`}>
-            <IoIosEye color="#fff" />
+            <IoIosEye size={18} />
           </Link>
         </td>
       </Table.Row>
