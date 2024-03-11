@@ -1,3 +1,4 @@
+import { BiSolidCategoryAlt } from "react-icons/bi";
 import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { HiHome, HiUser } from "react-icons/hi";
@@ -23,6 +24,11 @@ const permissions = {
       name: "درخواست‌ها",
       to: "/dashboard/admin/all-proposals",
       icon: <FaCodePullRequest size={20} />,
+    },
+    {
+      name: "دسته‌بندی‌ها",
+      to: "/dashboard/admin/all-categories",
+      icon: <BiSolidCategoryAlt size={20} />,
     },
   ],
   FREELANCER: [
