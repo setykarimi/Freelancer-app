@@ -2,7 +2,7 @@
 import Loading from "@/common/loading";
 import Table from "@/common/table";
 import useCategories from "@/hooks/category/use-categories";
-import toLocalDateShort from "@/utils/to-local-date-short";
+import AllCategoriesTableRow from "./row";
 
 export default function AllCategoriesTable() {
   const { rawCategories, isLoading } = useCategories();
@@ -27,16 +27,7 @@ export default function AllCategoriesTable() {
       </Table.Header>
       <Table.Body>
         {rawCategories.map((category: any, index: number) => (
-          <Table.Row>
-            <td>{++index}</td>
-            <td>{category.title}</td>
-            <td>{category.type}</td>
-            <td>{category.englishTitle}</td>
-            <td>{category.description}</td>
-            <td>{toLocalDateShort(category.createdAt)}</td>
-            <td>{toLocalDateShort(category.updatedAt)}</td>
-            <td></td>
-          </Table.Row>
+          <AllCategoriesTableRow category={category} index={index} />
         ))}
       </Table.Body>
     </Table>
