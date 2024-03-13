@@ -1,23 +1,20 @@
-import RHFSelect from "@/common/form/rhf-select";
 import TextField from "@/common/form/text-field";
 import Loading from "@/common/loading";
-import useCategories from "@/hooks/category/use-categories";
 import useCreateCategory from "@/hooks/category/use-create-category";
-import useEditProject from "@/hooks/projects/use-edit-project";
-import { useState } from "react";
+import useEditCategory from "@/hooks/category/use-edit-category";
 import { useForm } from "react-hook-form";
 
 function CreateCategoryForm({
   onClose,
-  projectToEdit = {},
+  categoryToEdit = {},
 }: {
   onClose: any;
-  projectToEdit?: any;
+  categoryToEdit?: any;
 }) {
-  const { _id: editId } = projectToEdit;
+  const { _id: editId } = categoryToEdit;
   const isEditSession = Boolean(editId);
 
-  const { title, description, englishTitle, type } = projectToEdit;
+  const { title, description, englishTitle, type } = categoryToEdit;
 
   let editValues = {};
 
@@ -37,18 +34,13 @@ function CreateCategoryForm({
     reset,
   } = useForm({ defaultValues: editValues });
 
-  const { categories } = useCategories();
   const { isCreating, createCategory } = useCreateCategory();
-  const { editProject, isEditing } = useEditProject();
+  const { editCategory, isEditing } = useEditCategory();
 
   const onSubmit = (data: any) => {
-    const newProject = {
-      ...data,
-    };
-
     if (isEditSession) {
-      editProject(
-        { id: editId, newProject },
+      editCategory(
+        { id: editId, data },
         {
           onSuccess: () => {
             onClose();
@@ -57,7 +49,7 @@ function CreateCategoryForm({
         }
       );
     } else {
-      createCategory(newProject, {
+      createCategory(data, {
         onSuccess: () => {
           onClose();
           reset();
@@ -76,8 +68,8 @@ function CreateCategoryForm({
         validationSchema={{
           required: "عنوان ضروری است",
           minLength: {
-            value: 10,
-            message: "حداقل 10 کاراکتر را وارد کنید",
+            value: 5,
+            message: "حداقل 5 کاراکتر را وارد کنید",
           },
         }}
         errors={errors}
@@ -90,8 +82,8 @@ function CreateCategoryForm({
         validationSchema={{
           required: "توضیحات ضروری است",
           minLength: {
-            value: 15,
-            message: "حداقل 15 کاراکتر را وارد کنید",
+            value: 10,
+            message: "حداقل 10 کاراکتر را وارد کنید",
           },
         }}
         errors={errors}
@@ -107,7 +99,7 @@ function CreateCategoryForm({
         }}
         errors={errors}
       />
-     <TextField
+      <TextField
         label="تایپ"
         name="type"
         type="text"
