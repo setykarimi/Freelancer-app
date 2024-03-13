@@ -23,7 +23,7 @@ export default function AllCategoriesTable() {
         <th>توضیحات</th>
         <th>تاریخ ثبت</th>
         <th>تاریخ ویرایش</th>
-        <th></th>
+        <th>عملیات</th>
       </Table.Header>
       <Table.Body>
         {rawCategories.map((category: any, index: number) => (
