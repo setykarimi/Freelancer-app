@@ -1,29 +1,32 @@
-import { BiSolidCategoryAlt } from "react-icons/bi";
+import {
+  BiSolidCategoryAlt,
+  BiSolidDashboard,
+  BiSolidUser,
+} from "react-icons/bi";
 import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
-import { GoHomeFill } from "react-icons/go";
-import { HiHome, HiUser } from "react-icons/hi";
+import { PiGitPullRequestThin, PiProjectorScreenLight } from "react-icons/pi";
 
 const permissions = {
   ADMIN: [
     {
       name: "داشبورد",
       to: "/dashboard/admin",
-      icon: <GoHomeFill size={20} />,
+      icon: <BiSolidDashboard size={20} />,
     },
     {
       name: "کاربران",
       to: "/dashboard/admin/all-users",
-      icon: <HiUser size={20} />,
+      icon: <BiSolidUser size={20} />,
     },
     {
       name: "پروژه‌ها",
       to: "/dashboard/admin/all-projects",
-      icon: <FaChartSimple size={20} />,
+      icon: <PiProjectorScreenLight size={20} />,
     },
     {
       name: "درخواست‌ها",
       to: "/dashboard/admin/all-proposals",
-      icon: <FaCodePullRequest size={20} />,
+      icon: <PiGitPullRequestThin size={20} />,
     },
     {
       name: "دسته‌بندی‌ها",
@@ -35,7 +38,7 @@ const permissions = {
     {
       name: "داشبورد",
       to: "/dashboard/freelancer",
-      icon: <GoHomeFill size={20} />,
+      icon: <BiSolidDashboard size={20} />,
     },
     {
       name: "پروژه‌ها",
@@ -52,7 +55,7 @@ const permissions = {
     {
       name: "داشبورد",
       to: "/dashboard/owner",
-      icon: <GoHomeFill size={20} />,
+      icon: <BiSolidDashboard size={20} />,
     },
     {
       name: "پروژه‌ها",
