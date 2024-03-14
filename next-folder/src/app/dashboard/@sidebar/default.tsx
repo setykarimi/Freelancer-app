@@ -1,18 +1,21 @@
 "use client";
+import useLogout from "@/hooks/authentication/use-logout";
 import useUser from "@/hooks/authentication/use-user";
 import useOutSideClick from "@/hooks/other/use-outside-click";
 import permissions from "@/utils/permissions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { BiSolidHelpCircle } from "react-icons/bi";
 import { HiMenu } from "react-icons/hi";
+import { IoLogOutOutline } from "react-icons/io5";
 
 export default function Sidebar() {
   const [open, setOpen] = useState<boolean>(false);
   const ref = useOutSideClick(() => setOpen(false));
   const { user } = useUser();
   const role: "ADMIN" | "FREELANCER" | "OWNER" = user?.role;
-  const navClassName = "w-full flex items-center gap-2 p-2 rounded-md";
+  const { isPending, logout } = useLogout();
 
   const pathname = usePathname();
 
@@ -30,8 +33,13 @@ export default function Sidebar() {
       <ul
         className={`space-y-2 lg:block lg:static fixed right-0 top-8 bg-secondary-0 lg:w-full w-1/2 h-full ${
           open ? "block" : "hidden"
-        } p-4`}
+        } lg:p-8 p-4`}
       >
+        <div className="mb-12 text-secondary-700">
+          <h2 className="font-black text-3xl text-right">
+            <span className="text-primary-900">پراج</span>کــت
+          </h2>
+        </div>
         {permissions[role]?.map(({ name, to, icon }) => {
           const isActive = pathname == to;
           return (
@@ -40,8 +48,8 @@ export default function Sidebar() {
                 href={to}
                 className={
                   isActive
-                    ? `bg-primary-100/50 text-primary-800 font-bold ${navClassName}`
-                    : `${navClassName} text-secondary-600`
+                    ? `active--menu--sidebar sidebar--item`
+                    : `sidebar--item text-secondary-600`
                 }
               >
                 {icon}
@@ -50,6 +58,25 @@ export default function Sidebar() {
             </li>
           );
         })}
+
+        <li className="border-t border-t-secondary-100 pt-2">
+          <Link href="" className="sidebar--item text-secondary-600">
+            <BiSolidHelpCircle />
+            راهنما
+          </Link>
+        </li>
+
+        <li>
+          
+          <button
+            onClick={() => logout()}
+            className={`${isPending ? "!bg-secondary-300": ""}sidebar--item text-secondary-600`}
+            disabled={isPending}
+          >
+            <IoLogOutOutline />
+            خروج
+          </button>
+        </li>
       </ul>
     </div>
   );
