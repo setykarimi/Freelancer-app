@@ -6,9 +6,15 @@ export default function DarkModeToggle() {
   return (
     <button onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <HiOutlineSun className="w-5 h-5 text-secondary-500" />
+     <div>
+         <HiOutlineSun className="w-5 h-5 text-secondary-500" />
+         تغییر به روز
+     </div>
       ) : (
-        <HiOutlineMoon className="w-5 h-5 text-secondary-500" />
+      <div>
+          <HiOutlineMoon className="w-5 h-5 text-secondary-500" />
+          تغییر به شب
+      </div>
       )}
     </button>
   );
