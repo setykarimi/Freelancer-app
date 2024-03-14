@@ -109,6 +109,12 @@
   .badge--danger {
     @apply bg-red-500 text-white;
   }
+  .sidebar--item {
+    @apply w-full flex items-center gap-2 py-2 px-4 rounded-lg
+  }
+  .active--menu--sidebar {
+    @apply bg-primary-100/50 text-primary-800 font-bold;
+  }
 }
 
 html,
