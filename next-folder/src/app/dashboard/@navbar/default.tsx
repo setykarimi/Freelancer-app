@@ -1,22 +1,19 @@
-"use client"
-import useUser from '@/hooks/authentication/use-user';
-import React from 'react'
-import Avatar from './components/avatar';
-import HeaderMenu from './components/menu';
+"use client";
+import useUser from "@/hooks/authentication/use-user";
+import Avatar from "./components/avatar";
 
 export default function Navbar() {
-    const { isLoading } = useUser();
+  const { isLoading, user } = useUser();
 
   return (
-    <div className="bg-secondary-0 py-4 px-8 border-b border-b-secondary-200">
+    <div className="bg-secondary-0 py-3 px-8 border-b border-b-secondary-200">
       <div
-        className={`container xl:max-w-screen-lg flex items-center justify-between gap-x-4 ${
+        className={`container xl:max-w-screen-lg flex items-center justify-end gap-x-4 ${
           isLoading ? "blur-sm opacity-50" : ""
         }`}
       >
         <Avatar />
-        <HeaderMenu />
       </div>
     </div>
-  )
+  );
 }
