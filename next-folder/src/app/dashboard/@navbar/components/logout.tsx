@@ -1,6 +1,6 @@
 import Loading from "@/common/loading";
 import useLogout from "@/hooks/authentication/use-logout";
-import { HiArrowRightOnRectangle } from "react-icons/hi2";
+import { LuLogOut } from "react-icons/lu";
 
 export default function Logout() {
   const { isPending, logout } = useLogout();
@@ -13,7 +13,7 @@ export default function Logout() {
     <Loading />
   ) : (
     <button onClick={logoutHandler}>
-      <HiArrowRightOnRectangle className="w-5 h-5 text-secondary-500 hover:text-error" />
+      <LuLogOut className="text-secondary-500" size={13} />
     </button>
   );
 }
