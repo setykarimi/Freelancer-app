@@ -6,9 +6,8 @@ import permissions from "@/utils/permissions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { BiSolidHelpCircle } from "react-icons/bi";
+import { BiSolidExit, BiSolidHelpCircle } from "react-icons/bi";
 import { HiMenu } from "react-icons/hi";
-import { IoLogOutOutline } from "react-icons/io5";
 
 export default function Sidebar() {
   const [open, setOpen] = useState<boolean>(false);
@@ -67,13 +66,14 @@ export default function Sidebar() {
         </li>
 
         <li>
-          
           <button
             onClick={() => logout()}
-            className={`${isPending ? "!bg-secondary-300": ""}sidebar--item text-secondary-600`}
+            className={`${
+              isPending ? "!bg-secondary-300" : ""
+            }sidebar--item text-secondary-600`}
             disabled={isPending}
           >
-            <IoLogOutOutline />
+            <BiSolidExit />
             خروج
           </button>
         </li>
