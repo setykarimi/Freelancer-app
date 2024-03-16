@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa6";
 import HeaderMenu from "./menu";
 
 export default function Avatar() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const { user } = useUser();
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
