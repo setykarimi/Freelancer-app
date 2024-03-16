@@ -1,17 +1,19 @@
 import {
-  BiSolidCategoryAlt,
+  BiSolidCategory,
   BiSolidDashboard,
+  BiSolidDuplicate,
+  BiSolidHome,
+  BiSolidLayer,
   BiSolidUser,
 } from "react-icons/bi";
 import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
-import { PiGitPullRequestThin, PiProjectorScreenLight } from "react-icons/pi";
 
 const permissions = {
   ADMIN: [
     {
       name: "داشبورد",
       to: "/dashboard/admin",
-      icon: <BiSolidDashboard size={20} />,
+      icon: <BiSolidHome size={20} />,
     },
     {
       name: "کاربران",
@@ -21,17 +23,17 @@ const permissions = {
     {
       name: "پروژه‌ها",
       to: "/dashboard/admin/all-projects",
-      icon: <PiProjectorScreenLight size={20} />,
+      icon: <BiSolidDuplicate size={20} />,
     },
     {
       name: "درخواست‌ها",
       to: "/dashboard/admin/all-proposals",
-      icon: <PiGitPullRequestThin size={20} />,
+      icon: <BiSolidLayer size={20} />,
     },
     {
       name: "دسته‌بندی‌ها",
       to: "/dashboard/admin/all-categories",
-      icon: <BiSolidCategoryAlt size={20} />,
+      icon: <BiSolidCategory size={20} />,
     },
   ],
   FREELANCER: [
