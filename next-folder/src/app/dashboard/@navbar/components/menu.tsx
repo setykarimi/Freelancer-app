@@ -28,16 +28,16 @@ export default function HeaderMenu({
               href={`/dashboard/${role?.toLocaleLowerCase()}`}
               className="flex items-center gap-2"
             >
-              <LuLayoutDashboard size={12} className="text-secondary-500" />
+              <LuLayoutDashboard size={13} className="text-secondary-500" />
               <span className="text-xs">داشبورد</span>
             </Link>
           </li>
           <li className="flex items-center ">
             <DarkModeToggle />
           </li>
-          <li className="flex items-center ">
+          <li className="flex items-center gap-2">
             <Logout />
-            خروج
+            <span className="text-xs">خروج</span>
           </li>
         </ul>
       </div>
