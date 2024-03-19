@@ -2,7 +2,7 @@ import { getCategoryApi } from "@/services/category-service";
 import { useQuery } from "@tanstack/react-query";
 
 export default function useCategories() {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategoryApi,
   });
@@ -17,5 +17,5 @@ export default function useCategories() {
     value: item.englishTitle,
   }));
 
-  return { rawCategories,categories, newCategories, isLoading };
+  return { rawCategories, categories, newCategories, isLoading, isError };
 }
