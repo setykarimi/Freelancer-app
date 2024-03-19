@@ -19,7 +19,7 @@ export default function DashboardLayout({
 
         <div className="bg-secondary-100  overflow-y-auto h-full">
             {navbar}
-          <div className="container xl:max-w-screen-lg mx-auto flex flex-col gap-y-8 p-6">
+          <div className="container xl:max-w-screen-lg mx-auto flex flex-col gap-y-8 p-4">
             {children}
           </div>
         </div>
