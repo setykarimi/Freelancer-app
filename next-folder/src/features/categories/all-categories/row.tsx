@@ -9,6 +9,7 @@ import { useState } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import CreateCategoryForm from "../create";
+import truncateText from "@/utils/truncate-text";
 
 export default function AllCategoriesTableRow({
   category,
@@ -27,7 +28,7 @@ export default function AllCategoriesTableRow({
       <td>{category.title}</td>
       <td>{category.type}</td>
       <td>{category.englishTitle}</td>
-      <td>{category.description}</td>
+      <td>{truncateText(category.description, 25)}</td>
       <td>{toLocalDateShort(category.createdAt)}</td>
       <td>{toLocalDateShort(category.updatedAt)}</td>
       <td>
