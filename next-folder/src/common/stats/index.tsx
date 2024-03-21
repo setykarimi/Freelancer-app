@@ -1,4 +1,3 @@
-import truncateText from "@/utils/truncate-text";
 import React from "react";
 
 const colors = {
@@ -10,12 +9,25 @@ const colors = {
 
 type StateType = {
   icon: React.ReactNode;
-  value: string;
+  total: string;
+  singleName?: string;
+  active?: string;
+  wait?: string;
+  declined?: string;
   title: string;
   color: "primary" | "blue" | "orange" | "red";
 };
 
-export default function Stat({ icon, value, title, color }: StateType) {
+export default function Stat({
+  icon,
+  title,
+  color,
+  total,
+  singleName,
+  active,
+  wait,
+  declined,
+}: StateType) {
   return (
     <div className="bg-secondary-0 p-2 rounded-md">
       <div className="flex  gap-2 items-center">
@@ -26,11 +38,29 @@ export default function Stat({ icon, value, title, color }: StateType) {
         </div>
         <div>
           <h5 className="font-bold text-lg text-secondary-500">{title}</h5>
-          <p className="text-secondary-400 text-xs mt-1">{value}</p>
         </div>
       </div>
-      <div className="mt-3 flex justify-between">
-        <span className="badge  badge--secondary block text-xs w-fit mr-auto">+{truncateText(value, 10)}</span>
+
+      <span className="text-secondary-800 font-bold text-sm my-2 block">
+        {total} {singleName} ثبت‌ شده
+      </span>
+
+      <div className="mt-3 flex justify-between gap-2">
+        {active && (
+          <span className="badge badge--success block w-fit" style={{fontSize: '10px'}}>
+            {active} 
+          </span>
+        )}
+        {wait && (
+          <span className="badge badge--secondary block w-fit" style={{fontSize: '10px'}}>
+            {wait}
+          </span>
+        )}
+        {declined && (
+          <span className="badge badge--danger block w-fit" style={{fontSize: '10px'}}>
+            {declined} 
+          </span>
+        )}
       </div>
     </div>
   );
