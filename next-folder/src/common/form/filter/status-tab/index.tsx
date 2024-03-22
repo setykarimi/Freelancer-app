@@ -20,6 +20,7 @@ export default function StatusFilter({
       <div className="flex items-center gap-x-2 border border-secondary-100 bg-secondary-0 rounded-md p-1 w-full justify-between h-full">
         {options.map(({ value, label }) => {
           const isActive = value === searchParams?.status || options[0].value;
+
           return (
             <button
               onClick={clickHandler}
