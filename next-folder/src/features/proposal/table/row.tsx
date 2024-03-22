@@ -24,17 +24,19 @@ const statusStyle = [
 export default function ProposalTableRow({ proposal }: { proposal: any }) {
   return (
     <Table.Row>
-      <td>{truncateText(proposal.description, 60)}</td>
-      <td>{toPersianNumbers(proposal.duration)}</td>
-      <td>{toPersianNumbersWithComma(proposal.price)}</td>
-      <td>
+      <td>1</td>
+      <td data-title="توضیحات">{truncateText(proposal.description, 60)}</td>
+      <td data-title="زمان تحویل">{toPersianNumbers(proposal.duration)}</td>
+      <td data-title="هزینه">{toPersianNumbersWithComma(proposal.price)}</td>
+      <td data-title="وضعیت">
         <span className={`badge ${statusStyle[proposal.status].className}`}>
           {statusStyle[proposal.status].label}
         </span>
       </td>
-      <td>{toLocalDateShort(proposal.createdAt)}</td>
-      <td>{toLocalDateShort(proposal.updatedAt)}</td>
-  
+      <td data-title="تاریخ ثبت">{toLocalDateShort(proposal.createdAt)}</td>
+      <td data-title="تاریخ آخرین ویرایش">
+        {toLocalDateShort(proposal.updatedAt)}
+      </td>
     </Table.Row>
   );
 }
