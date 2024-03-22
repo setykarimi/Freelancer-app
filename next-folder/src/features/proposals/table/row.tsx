@@ -33,18 +33,20 @@ export default function ProposalRow({
     <>
       <Table.Row>
         <td>{index + 1}</td>
-        <td>{truncateText(proposal.description, 60)}</td>
-        <td>{toPersianNumbers(proposal.duration)}</td>
-        <td>{toPersianNumbersWithComma(proposal.price)}</td>
-        <td>
+        <td data-title="توضیحات">{truncateText(proposal.description, 60)}</td>
+        <td data-title="زمان تحویل">{toPersianNumbers(proposal.duration)}</td>
+        <td data-title="هزینه">{toPersianNumbersWithComma(proposal.price)}</td>
+        <td data-title="وضعیت">
           <span className={`badge ${statusStyle[proposal.status].className}`}>
             {statusStyle[proposal.status].label}
           </span>
         </td>
-        <td>
-          <Link href={`/dashboard/freelancer/proposal/${proposal._id}`}>
-            <IoIosEye size={18} />
-          </Link>
+        <td data-title="عملیات">
+          <div className="w-full flex justify-center ">
+            <Link href={`/dashboard/freelancer/proposal/${proposal._id}`} className="btn btn--primary !p-2">
+              <IoIosEye size={15} className="w-6" />
+            </Link>
+          </div>
         </td>
       </Table.Row>
     </>
