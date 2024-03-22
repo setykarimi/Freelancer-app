@@ -18,7 +18,6 @@ export default function CreateProposal({
   } = useForm();
 
   const onSubmit = (values: any) => {
-    console.log(values);
     createProposal(
       {
         ...values,
