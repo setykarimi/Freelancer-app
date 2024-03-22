@@ -110,11 +110,15 @@
     @apply bg-red-100 text-red-600;
   }
   .sidebar--item {
-    @apply w-full flex items-center gap-2 py-2 px-4 rounded-lg
+    @apply w-full flex items-center gap-2 py-2 px-4 rounded-lg;
   }
   .active--menu--sidebar {
     @apply bg-primary-100/50 text-primary-800 font-bold;
   }
+}
+
+.font-bold {
+  font-family: "Vazir-bold" !important;
 }
 
 html,
@@ -160,8 +164,7 @@ input[type="number"] {
 }
 
 /* TABLE */
-
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
@@ -188,9 +191,113 @@ table td {
   font-size: 0.85rem;
   padding: 1rem 1rem;
   color: rgb(var(--color-secondary-600));
+} */
+
+table thead tr th {
+  font-family: "Vazir-Bold";
+  padding: 1rem 0.5rem;
+  background-color: rgb(var(--color-primary-50));
+  text-align: center;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
+table thead tr th:first-child {
+  border-radius: 0 8px 0 0;
+}
 
-.font-bold{
-  font-family: 'Vazir-bold'!important;
+table thead tr th:last-child {
+  border-radius: 8px 0 0 0;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 8px 0;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 0 8px;
+}
+
+table tr {
+  background-color: rgb(var(--color-secondary-0));
+}
+
+table tr td {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-size: 13px;
+  margin: 0.3rem;
+  position: relative;
+  background-color: rgb(var(--color-secondary-0));
+}
+
+table tbody tr {
+  border-bottom: 1px solid rgb(var(--color-secondary-100));
+}
+
+table tr td:not(:first-child):before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 30px;
+  background: rgb(var(--color-secondary-100));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 0;
+}
+
+@media (max-width: 992px) {
+  table tbody {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    border: 1px solid rgb(var(--color-secondary-100));
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  table tbody tr {
+    border: 1px solid rgb(var(--color-secondary-100));
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  table tbody tr td:first-child {
+    display: none;
+  }
+  table tbody tr td {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Vazir-Bold";
+  }
+  table tr td:not(:first-child):before {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    top: 0;
+    left: 0;
+    transform: none;
+    right: 0;
+  }
+  table tbody tr td::before {
+    content: attr(data-title) !important;
+    display: block;
+    font-family: "Vazir";
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    top: 0;
+    left: 0;
+    transform: 0;
+    right: 0;
+  }
 }
