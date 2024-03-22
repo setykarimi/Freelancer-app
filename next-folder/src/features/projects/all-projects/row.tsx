@@ -30,18 +30,18 @@ export default function AllProjectsRow({
 
   return (
     <Table.Row key={project.id}>
-      <td>{index + 1}</td>
-      <td>{truncateText(project.title, 30)}</td>
-      <td>{toPersianNumbersWithComma(project.budget)}</td>
-      <td>{toLocalDateShort(project.deadline)}</td>
-      <td>
-        <span className={`badge ${projectStatus[status]?.className}`}>
+      <td data-title="">{index + 1}</td>
+      <td data-title="عنوان پروژه">{truncateText(project.title, 30)}</td>
+      <td data-title="بودجه">{toPersianNumbersWithComma(project.budget)}</td>
+      <td data-title="ددلاین">{toLocalDateShort(project.deadline)}</td>
+      <td data-title="وضعیت">
+        <span className={`badge ${projectStatus[status]?.className} !px-3`}>
           {projectStatus[status]?.label}
         </span>
       </td>
-      <td>
-        <button onClick={() => setOpen(true)}>
-          <MdAssignmentAdd className="w-5 h-5 text-secondary-500" />
+      <td data-title="عملیات">
+        <button onClick={() => setOpen(true)} className="btn btn--primary !p-2">
+          <MdAssignmentAdd size={16} className="text-secondary-0" />
         </button>
         <Modal
           open={open}
