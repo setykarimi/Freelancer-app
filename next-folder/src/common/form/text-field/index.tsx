@@ -12,7 +12,7 @@ export default function TextField({
 
   return (
     <div>
-      <label className="mb-2 block text-secondary-700 font-bold" htmlFor={name}>
+      <label className="mb-2 block text-secondary-700 font-bold text-right" htmlFor={name}>
         {label} {required && <span className="text-error">*</span>}
       </label>
       <input
