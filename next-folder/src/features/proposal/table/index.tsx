@@ -5,13 +5,13 @@ export default function ProposalTable({ proposal }: { proposal: any }) {
   return (
     <Table>
       <Table.Header>
+        <th>ردیف</th>
         <th>توضیحات</th>
         <th>زمان تحویل</th>
         <th>هزینه</th>
         <th>وضعیت</th>
         <th>تاریخ ثبت</th>
         <th>تاریخ آخرین ویرایش</th>
-        <th></th>
       </Table.Header>
       <Table.Body>
         <ProposalTableRow proposal={proposal} />
