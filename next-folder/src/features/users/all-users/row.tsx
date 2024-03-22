@@ -23,27 +23,24 @@ export default function UsersRow({ index, user }: any) {
   const { status } = user;
   return (
     <Table.Row key={user.id}>
-      <td>{index + 1}</td>
-      <td>{user.name}</td>
-      <td>{user.email}</td>
-      <td>{user.phoneNumber}</td>
-      <td>{user.role}</td>
-      <td>
-        <span className={`badge ${statusStyle[status].className}`}>
+      <td data-title="">{index + 1}</td>
+      <td data-title="نام">{user.name}</td>
+      <td data-title="ایمیل">{user.email}</td>
+      <td data-title="شماره موبایل">{user.phoneNumber}</td>
+      <td data-title="نقش">{user.role}</td>
+      <td data-title="وضعیت">
+        <span className={`badge ${statusStyle[status].className} text-xs`}>
           {statusStyle[status].label}
         </span>
       </td>
-      <td>
-        <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
+      <td data-title="عملیات">
+        <button onClick={() => setOpen(true)} className="btn btn--primary text-xs">تغییر وضعیت</button>
         <Modal
           onClose={() => setOpen(false)}
           open={open}
           title="تغییر وضعیت کاربر"
         >
-          <ChangeUserStatus
-            userId={user._id}
-            onClose={() => setOpen(false)}
-          />
+          <ChangeUserStatus userId={user._id} onClose={() => setOpen(false)} />
         </Modal>
       </td>
     </Table.Row>
