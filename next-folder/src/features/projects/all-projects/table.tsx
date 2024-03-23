@@ -35,24 +35,33 @@ export default function AllProjectsTable({
     <>
       {!isLoading ? (
         <>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 items-center">
-            <StatusFilter options={statusOptions} searchParams={searchParams} />
-            <FilterDropDown
-              filterField="category"
-              options={[{ value: "", label: "همه" }, ...newCategories]}
-              searchParams={searchParams}
-            />
-            <FilterDropDown
-              searchParams={searchParams}
-              filterField="sort"
-              options={[
-                { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
-                {
-                  value: "earliest",
-                  label: "مرتب‌سازی (قدیمی‌ترین)",
-                },
-              ]}
-            />
+          <div>
+            <h1 className="font-black text-secondary-700 text-xl mb-4">
+              پروژه‌ها
+            </h1>
+
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 items-center">
+              <StatusFilter
+                options={statusOptions}
+                searchParams={searchParams}
+              />
+              <FilterDropDown
+                filterField="category"
+                options={[{ value: "", label: "همه" }, ...newCategories]}
+                searchParams={searchParams}
+              />
+              <FilterDropDown
+                searchParams={searchParams}
+                filterField="sort"
+                options={[
+                  { value: "latest", label: "مرتب‌سازی (جدیدترین)" },
+                  {
+                    value: "earliest",
+                    label: "مرتب‌سازی (قدیمی‌ترین)",
+                  },
+                ]}
+              />
+            </div>
           </div>
 
           {projects.length ? (
