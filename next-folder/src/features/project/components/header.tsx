@@ -4,7 +4,7 @@ import { HiArrowRight } from "react-icons/hi";
 export default function ProjectHeader({ project }: { project: any }) {
   const moveBack = useMoveBack();
   return (
-    <div className="flex items-center gap-x-4 mb-8">
+    <div className="flex items-center gap-x-4">
       <button onClick={moveBack}>
         <HiArrowRight className="w-5 h-5 text-secondary-500" />
       </button>
