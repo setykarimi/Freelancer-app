@@ -42,9 +42,9 @@ export default function ProposalRow({
           </span>
         </td>
         <td data-title="عملیات">
-          <div className="w-full flex justify-center ">
+          <div className="w-full flex lg:justify-center justify-end">
             <Link href={`/dashboard/freelancer/proposal/${proposal._id}`} className="btn btn--primary !p-2">
-              <IoIosEye size={15} className="w-6" />
+              <IoIosEye size={16} className="w-4 h-4" />
             </Link>
           </div>
         </td>
