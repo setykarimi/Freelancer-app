@@ -6,7 +6,7 @@ import { DatePickerFieldProps } from "./type";
 function DatePickerField({ label, date, setDate }: DatePickerFieldProps) {
   return (
     <div>
-      <span className="mb-2 block text-secondary-700">{label}</span>
+      <span className="mb-2 block text-secondary-700 text-right">{label}</span>
       <DatePicker
         containerClassName="w-full"
         inputClass="textField__input"
