@@ -4,11 +4,8 @@ import GeneralHeader from "@/common/dashboard/general-header";
 import Loading from "@/common/loading";
 import Stat from "@/common/stats";
 import useOwnerProjects from "@/hooks/projects/use-owner-projects";
-import {
-  HiCollection,
-  HiCurrencyDollar,
-  HiOutlineViewGrid,
-} from "react-icons/hi";
+import { toPersianNumbers } from "@/utils/to-persian-numbers";
+import { HiCollection, HiOutlineViewGrid } from "react-icons/hi";
 
 export default function OwnerDashboard() {
   const { isLoading, projects } = useOwnerProjects();
@@ -18,7 +15,10 @@ export default function OwnerDashboard() {
   }
   const numOfProjects = projects.length;
   const numOfAcceptedProjects = projects.filter(
-    (p: any) => p.status === 2
+    (p: any) => p.status == "OPEN"
+  ).length;
+  const numOfDeclinedProjects = projects.filter(
+    (p: any) => p.status === "CLOSED"
   ).length;
   const numOfProposals = projects.reduce(
     (acc: any, curr: any) => curr.proposals.length + acc,
@@ -28,23 +28,22 @@ export default function OwnerDashboard() {
   return (
     <>
       <GeneralHeader />
-      <div className="grid md:grid-cols-3 gap-x-8">
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         <Stat
           color="primary"
-          title="پروژه ها"
-          value={numOfProjects}
+          title="پروژه‌ها"
+          singleName="پروژه"
+          active={`${toPersianNumbers(numOfAcceptedProjects)} واگذار شده`}
+          declined={`${toPersianNumbers(numOfDeclinedProjects)} بسته شده`}
+          total={toPersianNumbers(numOfProjects)}
           icon={<HiOutlineViewGrid className="w-20 h-20" />}
         />
+
         <Stat
-          color="green"
-          title="پروژه های واگذار شده"
-          value={numOfAcceptedProjects}
-          icon={<HiCurrencyDollar className="w-20 h-20" />}
-        />
-        <Stat
-          color="yellow"
+          color="orange"
           title="درخواست ها"
-          value={numOfProposals}
+          singleName="درخواست"
+          total={toPersianNumbers(numOfProposals)}
           icon={<HiCollection className="w-20 h-20" />}
         />
       </div>
