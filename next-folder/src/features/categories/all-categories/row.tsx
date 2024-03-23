@@ -24,49 +24,51 @@ export default function AllCategoriesTableRow({
 
   return (
     <Table.Row>
-      <td>{++index}</td>
-      <td>{category.title}</td>
-      <td>{category.type}</td>
-      <td>{category.englishTitle}</td>
-      <td>{truncateText(category.description, 25)}</td>
-      <td>{toLocalDateShort(category.createdAt)}</td>
-      <td>{toLocalDateShort(category.updatedAt)}</td>
-      <td>
-      <div className="flex items-center gap-x-4">
-            <>
-              <button onClick={() => setIsEditOpen(true)}>
-                <TbPencilMinus className="w-5 h-5 text-primary-900" />
-              </button>
-              <Modal
-                open={isEditOpen}
-                title={`ویرایش دسته بندی ${category.title}`}
-                onClose={() => setIsEditOpen(false)}
-              >
-                <CreateCategoryForm onClose={()=> setIsEditOpen(false)} categoryToEdit={category}/>
-              </Modal>
-            </>
-            <button onClick={() => setIsDelteOpen(true)}>
-              <HiOutlineTrash className="w-5 h-5 text-error" />
-            </button>
-            <Modal
-              open={isDeleteOpen}
-              title={`حذف ${category.title}`}
-              onClose={() => setIsDelteOpen(false)}
-            >
-              <ConfirmDelete
-                onClose={() => {
-                  setIsDelteOpen(false);
-                }}
-                onConfirm={() =>
-                  removeCategory(category._id, {
-                    onSuccess: () => setIsDelteOpen(false),
-                  })
-                }
-                resourceName={category.title}
-                disabled={false}
-              />
-            </Modal>
-          </div>
+      <td data-title="ردیف">{++index}</td>
+      <td data-title="عنوان">{category.title}</td>
+      <td data-title="نوع">{category.type}</td>
+      <td data-title="عنوان انگلیسی">{category.englishTitle}</td>
+      <td data-title="توضیحات">{truncateText(category.description, 25)}</td>
+      <td data-title="تاریخ ثبت">{toLocalDateShort(category.createdAt)}</td>
+      <td data-title="تاریخ ویرایش">{toLocalDateShort(category.updatedAt)}</td>
+      <td data-title="عملیات">
+        <div className="flex items-center justify-center gap-x-4">
+          <button onClick={() => setIsEditOpen(true)}>
+            <TbPencilMinus className="w-5 h-5 text-primary-900" />
+          </button>
+          <Modal
+            open={isEditOpen}
+            title={`ویرایش دسته بندی ${category.title}`}
+            onClose={() => setIsEditOpen(false)}
+          >
+            <CreateCategoryForm
+              onClose={() => setIsEditOpen(false)}
+              categoryToEdit={category}
+            />
+          </Modal>
+
+          <button onClick={() => setIsDelteOpen(true)}>
+            <HiOutlineTrash className="w-5 h-5 text-error" />
+          </button>
+          <Modal
+            open={isDeleteOpen}
+            title={`حذف ${category.title}`}
+            onClose={() => setIsDelteOpen(false)}
+          >
+            <ConfirmDelete
+              onClose={() => {
+                setIsDelteOpen(false);
+              }}
+              onConfirm={() =>
+                removeCategory(category._id, {
+                  onSuccess: () => setIsDelteOpen(false),
+                })
+              }
+              resourceName={category.title}
+              disabled={false}
+            />
+          </Modal>
+        </div>
       </td>
     </Table.Row>
   );
