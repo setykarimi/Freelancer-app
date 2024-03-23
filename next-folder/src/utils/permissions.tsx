@@ -1,12 +1,10 @@
 import {
   BiSolidCategory,
-  BiSolidDashboard,
   BiSolidDuplicate,
   BiSolidHome,
   BiSolidLayer,
   BiSolidUser,
 } from "react-icons/bi";
-import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
 
 const permissions = {
   ADMIN: [
@@ -40,29 +38,29 @@ const permissions = {
     {
       name: "داشبورد",
       to: "/dashboard/freelancer",
-      icon: <BiSolidDashboard size={20} />,
+      icon: <BiSolidHome size={20} />,
     },
     {
       name: "پروژه‌ها",
       to: "/dashboard/freelancer/projects",
-      icon: <FaChartSimple size={20} />,
+      icon: <BiSolidDuplicate size={20} />,
     },
     {
       name: "درخواست‌ها",
       to: "/dashboard/freelancer/proposals",
-      icon: <FaCodePullRequest size={20} />,
+      icon: <BiSolidLayer size={20} />,
     },
   ],
   OWNER: [
     {
       name: "داشبورد",
       to: "/dashboard/owner",
-      icon: <BiSolidDashboard size={20} />,
+      icon: <BiSolidHome size={20} />,
     },
     {
       name: "پروژه‌ها",
       to: "/dashboard/owner/projects",
-      icon: <FaChartSimple size={20} />,
+      icon: <BiSolidDuplicate size={20} />,
     },
   ],
 };
