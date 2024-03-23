@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Modal from "@/common/modal";
 import AllCategoriesTable from "@/features/categories/all-categories/table";
 import CreateCategoryForm from "@/features/categories/create";
@@ -9,7 +9,7 @@ export default function page() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between">
         <h1 className="font-black text-secondary-700 text-xl">دسته‌بندی‌ها</h1>
         <Modal
           title="اضافه کردن دسته‌بندی جدید"
