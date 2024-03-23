@@ -30,25 +30,28 @@ export default function ProposalRow({
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{proposal.user.name}</td>
-      <td>
+      <td data-title="فریلنسر"> {proposal.user.name}</td>
+      <td data-title="توضیحات">
         <p>{truncateText(proposal.description, 50)}</p>
       </td>
-      <td>{proposal.duration}</td>
-      <td>{proposal.price}</td>
-      <td>
+      <td data-title="زمان تحویل">{proposal.duration}</td>
+      <td data-title="هزینه">{proposal.price}</td>
+      <td data-title="وضعیت">
         <span className={`badge ${statusStyle[proposal.status].className}`}>
           {statusStyle[proposal.status].label}
         </span>
       </td>
-      <td>
-        <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
+      <td data-title="عملیات">
+        <button onClick={() => setOpen(true)} className="btn btn--primary">تغییر وضعیت</button>
         <Modal
           onClose={() => setOpen(false)}
           open={open}
           title="تغییر وضعیت درخواست"
         >
-          <ChangeProposalStatus proposalId={proposal._id} onClose={()=> setOpen(false)}/>
+          <ChangeProposalStatus
+            proposalId={proposal._id}
+            onClose={() => setOpen(false)}
+          />
         </Modal>
       </td>
     </Table.Row>
