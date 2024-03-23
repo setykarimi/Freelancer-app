@@ -3,7 +3,10 @@ import GeneralHeader from "@/common/dashboard/general-header";
 import Loading from "@/common/loading";
 import Stat from "@/common/stats";
 import useProposals from "@/hooks/proposals/use-proposals";
-import { toPersianNumbersWithComma } from "@/utils/to-persian-numbers";
+import {
+  toPersianNumbers,
+  toPersianNumbersWithComma,
+} from "@/utils/to-persian-numbers";
 import {
   HiCollection,
   HiCurrencyDollar,
@@ -16,31 +19,39 @@ export default function FreelancerPage() {
 
   const numOfProposals = proposals.length;
   const acceptedProposals = proposals.filter((p: any) => p.status === 2);
+  const declinedProposals = proposals.filter((p: any) => p.status === 0);
+  const waitProposals = proposals.filter((p: any) => p.status === 1);
   const balance = acceptedProposals.reduce(
     (acc: number, curr: any) => acc + curr.price,
     0
   );
 
+
+
   return (
     <>
       <GeneralHeader />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         <Stat
           color="primary"
-          title="درخواست ها"
-          value={numOfProposals}
+          title="درخواست‌ها"
+          singleName="درخواست"
+          active={`${toPersianNumbers(acceptedProposals.length)} تایید شده`}
+          declined={`${toPersianNumbers(declinedProposals.length)} رد شده`}
+          wait={`${toPersianNumbers(waitProposals.length)} در انتظار تایید`}
+          total={toPersianNumbers(numOfProposals)}
           icon={<HiOutlineViewGrid className="w-20 h-20" />}
         />
-        <Stat
-          color="green"
+        {/* <Stat
+          color="blue"
           title="درخواست های تایید شده"
-          value={acceptedProposals.length}
+          total={}
           icon={<HiCurrencyDollar className="w-20 h-20" />}
-        />
+        /> */}
         <Stat
-          color="yellow"
+          color="orange"
           title="کیف پول"
-          value={toPersianNumbersWithComma(balance)}
+          total={toPersianNumbersWithComma(balance)}
           icon={<HiCollection className="w-20 h-20" />}
         />
       </div>
