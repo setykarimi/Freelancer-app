@@ -1,5 +1,6 @@
 import Loading from "@/common/loading";
 import { checkOtp } from "@/services/auth-service";
+import { convertPersianNumToEnglish } from "@/utils/convert-nums-to-english";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -8,16 +9,17 @@ import { CiEdit } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi";
 import OTPInput from "react-otp-input";
 import { CheckOTPFormPropTypes } from "./type";
-const RESEND_TIME = 90;
 
 export default function CheckOTPForm({
   phoneNumber,
   onBack,
   onResendOtp,
   otpResponse,
+  setTime,
+  time,
 }: CheckOTPFormPropTypes) {
   const [otp, setOtp] = useState("");
-  const [time, setTime] = useState(RESEND_TIME);
+
   const router = useRouter();
   const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
@@ -27,8 +29,8 @@ export default function CheckOTPForm({
     e.preventDefault();
     try {
       const { message, user } = await mutateAsync({
-        phoneNumber: phoneNumber,
-        otp: otp,
+        phoneNumber: convertPersianNumToEnglish(phoneNumber),
+        otp: convertPersianNumToEnglish(otp),
       });
       toast.success(message);
       if (user.status !== 2) {
@@ -47,7 +49,7 @@ export default function CheckOTPForm({
     const timer =
       time > 0 &&
       setInterval(() => {
-        setTime((t) => t - 1);
+        setTime((t: number) => t - 1);
       }, 1000);
     return () => {
       if (timer) {
@@ -63,7 +65,10 @@ export default function CheckOTPForm({
       </button>
       {otpResponse && (
         <p className="flex items-center my-4">
-          <span className="text-sm font-medium text-secondary-600"> {otpResponse?.message} </span>
+          <span className="text-sm font-medium text-secondary-600">
+            {" "}
+            {otpResponse?.message}{" "}
+          </span>
           <button onClick={onBack} className="w-4 h-4 text-secondary-500 mr-2">
             <CiEdit />
           </button>
@@ -72,10 +77,16 @@ export default function CheckOTPForm({
       <div className="mb-4 text-secondary-500 flex flex-col">
         {time > 0 ? (
           <p className="text-xs text-center">
-            <span className="font-bold">{time}{" "}</span>
-             ثانیه تا ارسال مجدد کد</p>
+            <span className="font-bold">{time} </span>
+            ثانیه تا ارسال مجدد کد
+          </p>
         ) : (
-          <button onClick={onResendOtp} className="mx-auto text-center text-primary-700 font-bold text-sm underline">ارسال مجدد کد تایید</button>
+          <button
+            onClick={onResendOtp}
+            className="mx-auto text-center text-primary-700 font-bold text-sm underline"
+          >
+            ارسال مجدد کد تایید
+          </button>
         )}
       </div>
       <form className="space-y-4 mt-8" onSubmit={checkOtpHandler}>
