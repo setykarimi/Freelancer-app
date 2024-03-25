@@ -46,7 +46,7 @@ export default function ProjectRow({
           <ToggleProjectStatus project={project} />
         </td>
         <td data-title="عملیات">
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-4 justify-center">
             <>
               <button onClick={() => setIsEditOpen(true)}>
                 <TbPencilMinus className="w-5 h-5 text-primary-900" />
