@@ -9,8 +9,7 @@ import {
 } from "@/utils/to-persian-numbers";
 import {
   HiCollection,
-  HiCurrencyDollar,
-  HiOutlineViewGrid,
+  HiOutlineViewGrid
 } from "react-icons/hi";
 
 export default function FreelancerPage() {
@@ -26,8 +25,6 @@ export default function FreelancerPage() {
     0
   );
 
-
-
   return (
     <>
       <GeneralHeader />
@@ -42,12 +39,7 @@ export default function FreelancerPage() {
           total={toPersianNumbers(numOfProposals)}
           icon={<HiOutlineViewGrid className="w-20 h-20" />}
         />
-        {/* <Stat
-          color="blue"
-          title="درخواست های تایید شده"
-          total={}
-          icon={<HiCurrencyDollar className="w-20 h-20" />}
-        /> */}
+
         <Stat
           color="orange"
           title="کیف پول"
