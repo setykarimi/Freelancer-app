@@ -164,34 +164,6 @@ input[type="number"] {
 }
 
 /* TABLE */
-/* table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-}
-
-table .title-row {
-  background-color: rgb(var(--color-secondary-100));
-}
-
-table td,
-table th {
-  border-bottom: 1px solid rgb(var(--color-secondary-200));
-  text-align: right;
-  white-space: nowrap;
-}
-
-table th {
-  padding: 0.6rem 1rem;
-  color: rgb(var(--color-secondary-600));
-  font-size: 0.9rem;
-}
-
-table td {
-  font-size: 0.85rem;
-  padding: 1rem 1rem;
-  color: rgb(var(--color-secondary-600));
-} */
 
 table thead tr th {
   font-family: "Vazir-Bold";
@@ -228,6 +200,7 @@ table tr td {
   font-size: 13px;
   margin: 0.3rem;
   position: relative;
+  color: rgb(var(--color-secondary-800));
   background-color: rgb(var(--color-secondary-0));
 }
 
