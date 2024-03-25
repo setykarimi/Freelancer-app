@@ -41,7 +41,7 @@ export default function OwnerDashboard() {
 
         <Stat
           color="orange"
-          title="درخواست ها"
+          title="درخواست‌ها"
           singleName="درخواست"
           total={toPersianNumbers(numOfProposals)}
           icon={<HiCollection className="w-20 h-20" />}
