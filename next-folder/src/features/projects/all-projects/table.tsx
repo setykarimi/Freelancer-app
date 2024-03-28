@@ -27,9 +27,13 @@ export default function AllProjectsTable({
 }: {
   searchParams: any;
 }) {
-  const { isLoading, projects } = useProjects();
+  const { isLoading, projects, error }:any = useProjects();
 
   const { newCategories } = useCategories();
+
+  if (error) {
+    throw new Error(error?.response?.data?.message);
+  }
 
   return (
     <>
