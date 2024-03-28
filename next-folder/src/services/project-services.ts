@@ -39,8 +39,11 @@ export function getProjectApi(id: string | undefined | string[]): Promise<any> {
     .catch((error) => Promise.reject(error));
 }
 
-export function getProjectsApi(qs:any): Promise<any> {
-  return http.get(`/project/list${qs}`).then(({ data }) => {
-    return data.data;
-  }).catch((error)=>Promise.reject(error))
+export function getProjectsApi(qs: any): Promise<any> {
+  return http
+    .get(`/project/list${qs}`)
+    .then(({ data }) => {
+      return data.data;
+    })
+    .catch((error) => Promise.reject(error));
 }
