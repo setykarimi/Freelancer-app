@@ -41,7 +41,7 @@ export default function ChangeUserStatus({
       {
         onSuccess: () => {
           onClose();
-          queryClient.invalidateQueries({ queryKey: ["users", userId] });
+          queryClient.invalidateQueries({ queryKey: ["users"] });
         },
       }
     );
