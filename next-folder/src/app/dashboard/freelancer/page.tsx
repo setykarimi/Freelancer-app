@@ -7,15 +7,15 @@ import {
   toPersianNumbers,
   toPersianNumbersWithComma,
 } from "@/utils/to-persian-numbers";
-import {
-  HiCollection,
-  HiOutlineViewGrid
-} from "react-icons/hi";
+import { HiCollection, HiOutlineViewGrid } from "react-icons/hi";
 
 export default function FreelancerPage() {
-  const { isLoading, proposals } = useProposals();
+  const { isLoading, proposals, error }: any = useProposals();
   if (isLoading) return <Loading />;
 
+  if (error) {
+    throw new Error(error?.response?.data?.message);
+  }
   const numOfProposals = proposals.length;
   const acceptedProposals = proposals.filter((p: any) => p.status === 2);
   const declinedProposals = proposals.filter((p: any) => p.status === 0);
