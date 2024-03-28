@@ -8,12 +8,12 @@ export default function useProjects() {
 
   const queryObject = Object.fromEntries(new URLSearchParams(search));
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["projects", queryObject],
     queryFn: () => getProjectsApi(`?${search}`),
   });
 
   const { projects } = data || {};
 
-  return { isLoading, projects, isError };
+  return { isLoading, projects, isError , error};
 }
