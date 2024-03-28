@@ -39,7 +39,7 @@ export default function CheckOTPForm({
         return;
       }
       const role_panel = user.role.toLowerCase();
-      return router.push(role_panel);
+      return router.push(`/dashboard/${role_panel}`);
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
