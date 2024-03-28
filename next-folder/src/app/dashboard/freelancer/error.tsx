@@ -1,8 +1,11 @@
-'use client'
-import React from 'react'
+"use client";
 
-export default function error() {
+export default function error({ error }: { error: string }) {
   return (
-    <div>error</div>
-  )
+    <div>
+      <span className="text-secondary-900 font-bold">
+        {error.toString()?.replace(/error:/i, "")}
+      </span>
+    </div>
+  );
 }
