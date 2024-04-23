@@ -15,23 +15,20 @@ export default function AllProposalsTable() {
   if (!proposals.length) return <h3>یافت نشد</h3>;
 
   return (
-    <>
-      <h1 className="font-black text-secondary-700 text-xl">درخواست‌ها</h1>
-      <Table>
-        <Table.Header>
-          <th>#</th>
-          <th>توضیحات</th>
-          <th>زمان تحویل</th>
-          <th>هزینه</th>
-          <th>وضعیت</th>
-          <th></th>
-        </Table.Header>
-        <Table.Body>
-          {proposals.map((proposal: any, index: number) => (
-            <ProposalRow key={proposal._id} proposal={proposal} index={index} />
-          ))}
-        </Table.Body>
-      </Table>
-    </>
+    <Table>
+      <Table.Header>
+        <th>#</th>
+        <th>توضیحات</th>
+        <th>زمان تحویل</th>
+        <th>هزینه</th>
+        <th>وضعیت</th>
+        <th></th>
+      </Table.Header>
+      <Table.Body>
+        {proposals.map((proposal: any, index: number) => (
+          <ProposalRow key={proposal._id} proposal={proposal} index={index} />
+        ))}
+      </Table.Body>
+    </Table>
   );
 }
