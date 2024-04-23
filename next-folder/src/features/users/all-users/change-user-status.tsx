@@ -22,9 +22,11 @@ const options = [
 export default function ChangeUserStatus({
   userId,
   onClose,
+  currentStatus,
 }: {
   userId: string;
   onClose: () => void;
+  currentStatus: string;
 }) {
   const { register, handleSubmit } = useForm();
   const { changeUserStatus, isEditing } = useChangeUserStatus();
@@ -46,6 +48,7 @@ export default function ChangeUserStatus({
       }
     );
   };
+  
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,6 +58,7 @@ export default function ChangeUserStatus({
           options={options}
           name="status"
           required
+          defaultValue={currentStatus}
         />
 
         <div className="!mt-8">
