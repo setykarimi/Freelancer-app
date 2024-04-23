@@ -30,15 +30,15 @@ export default function ProposalRow({
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td data-title="فریلنسر"> {proposal.user.name}</td>
+      <td data-title="فریلنسر"> {proposal?.user?.name}</td>
       <td data-title="توضیحات">
-        <p>{truncateText(proposal.description, 50)}</p>
+        <p>{truncateText(proposal?.description, 50)}</p>
       </td>
-      <td data-title="زمان تحویل">{proposal.duration}</td>
-      <td data-title="هزینه">{proposal.price}</td>
+      <td data-title="زمان تحویل">{proposal?.duration}</td>
+      <td data-title="هزینه">{proposal?.price}</td>
       <td data-title="وضعیت">
-        <span className={`badge ${statusStyle[proposal.status].className}`}>
-          {statusStyle[proposal.status].label}
+        <span className={`badge ${statusStyle[proposal?.status].className}`}>
+          {statusStyle[proposal?.status].label}
         </span>
       </td>
       <td data-title="عملیات">
@@ -49,8 +49,9 @@ export default function ProposalRow({
           title="تغییر وضعیت درخواست"
         >
           <ChangeProposalStatus
-            proposalId={proposal._id}
+            proposalId={proposal?._id}
             onClose={() => setOpen(false)}
+            currentStatus={proposal?.status}
           />
         </Modal>
       </td>
