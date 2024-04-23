@@ -23,9 +23,11 @@ const options = [
 export default function ChangeProposalStatus({
   proposalId,
   onClose,
+  currentStatus
 }: {
   proposalId: string;
   onClose: () => void;
+  currentStatus:string
 }) {
   const { id } = useParams();
   const { register, handleSubmit } = useForm();
@@ -58,6 +60,7 @@ export default function ChangeProposalStatus({
           options={options}
           name="status"
           required
+          defaultValue={currentStatus}
         />
 
         <div className="!mt-8">
