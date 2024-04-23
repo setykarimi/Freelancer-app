@@ -9,4 +9,5 @@ export interface RHFSelectPropsType {
     value: string | number;
   }[];
   required?: boolean;
+  defaultValue?: string
 }
