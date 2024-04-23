@@ -40,7 +40,7 @@ export default function UsersRow({ index, user }: any) {
           open={open}
           title="تغییر وضعیت کاربر"
         >
-          <ChangeUserStatus userId={user._id} onClose={() => setOpen(false)} />
+          <ChangeUserStatus userId={user._id} onClose={() => setOpen(false)} currentStatus={status}/>
         </Modal>
       </td>
     </Table.Row>
