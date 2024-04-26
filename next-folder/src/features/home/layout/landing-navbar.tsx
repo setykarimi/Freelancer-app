@@ -5,7 +5,7 @@ import { GoPerson } from "react-icons/go";
 export default function LandingNavbar() {
   return (
     <nav className="flex justify-between items-center py-4 w-full">
-      <span className="font-semibold lg:text-3xl text-2xl text-primary-900 block">
+      <span className="font-black lg:text-3xl text-2xl text-primary-900 block">
         پراجـــکت
       </span>
       <div className="flex items-center gap-4">
@@ -17,8 +17,8 @@ export default function LandingNavbar() {
             <BsTelephone size={24} />
           </Link>
           <div className="md:block hidden">
-            <span className="block text-sm text-[#5F6063]">مشاوره رایگان</span>
-            <span className="block text-[#303031] font-bold">۰۲۱-۹۱۰۱۵۱۴۶</span>
+            <span className="block text-xs text-[#5F6063]">مشاوره رایگان</span>
+            <span className="block text-[#303031]">۰۲۱-۹۱۰۱۵۱۴۶</span>
           </div>
         </div>
 
