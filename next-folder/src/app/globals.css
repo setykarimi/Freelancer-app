@@ -118,15 +118,22 @@
 }
 
 .font-bold {
-  font-family: "Vazir-bold" !important;
+  font-family: "IranSans-bold" !important;
+}
+.font-black {
+  font-family: "IranSans-black" !important;
+}
+.font-extrabold {
+  font-family: "IranSans-extraBold" !important;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Vazir";
+  font-family: "IranSans";
   min-height: 100vh;
+  color: #303031;
   /* user-select: none; */
   /* background-color: rgb(var(--background-app-rgb)); */
 }
@@ -166,7 +173,7 @@ input[type="number"] {
 /* TABLE */
 
 table thead tr th {
-  font-family: "Vazir-Bold";
+  font-family: "IranSans-bold";
   padding: 1rem 0.5rem;
   background-color: rgb(var(--color-primary-50));
   text-align: center;
@@ -248,7 +255,7 @@ table tr td:not(:first-child):before {
     padding: 0;
     display: flex;
     justify-content: space-between;
-    font-family: "Vazir-Bold";
+    font-family: "IranSans-bold";
   }
   table tr td:not(:first-child):before {
     position: static;
@@ -263,7 +270,7 @@ table tr td:not(:first-child):before {
   table tbody tr td::before {
     content: attr(data-title) !important;
     display: block;
-    font-family: "Vazir";
+    font-family: "IranSans";
     position: static;
     width: auto;
     height: auto;
