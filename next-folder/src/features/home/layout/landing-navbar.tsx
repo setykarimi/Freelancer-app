@@ -9,6 +9,13 @@ export default function LandingNavbar() {
         پراجـــکت
       </span>
       <div className="flex items-center gap-4">
+        <Link
+          href="/auth"
+          className="text-primary-900 border lg:border-primary-900 border-primary-100 lg:px-5 lg:py-2 lg:rounded-full rounded-xl lg:w-auto w-11 lg:h-auto h-11 flex justify-center items-center"
+        >
+          <GoPerson size={24} className="lg:hidden block" />
+          <span className="lg:block hidden">ورود | ثبت نام</span>
+        </Link>
         <div className="flex gap-4 items-center">
           <Link
             href=""
@@ -21,14 +28,6 @@ export default function LandingNavbar() {
             <span className="block text-[#303031]">۰۲۱-۹۱۰۱۵۱۴۶</span>
           </div>
         </div>
-
-        <Link
-          href="/auth"
-          className="text-primary-900 border lg:border-primary-900 border-primary-100 lg:px-5 lg:py-2 lg:rounded-full rounded-xl lg:w-auto w-11 lg:h-auto h-11 flex justify-center items-center"
-        >
-          <GoPerson size={24} className="lg:hidden block"/>
-          <span className="lg:block hidden">ورود | ثبت نام</span>
-        </Link>
       </div>
     </nav>
   );
