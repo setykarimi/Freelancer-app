@@ -4,7 +4,7 @@ import { GoPerson } from "react-icons/go";
 
 export default function LandingNavbar() {
   return (
-    <nav className="flex justify-between items-center py-4 w-full">
+    <nav className="flex justify-between items-center py-4 w-full max-h-[10vh]">
       <span className="font-black lg:text-3xl text-2xl text-primary-900 block">
         پراجـــکت
       </span>
