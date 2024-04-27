@@ -3,7 +3,7 @@ import { IoShieldCheckmark } from "react-icons/io5";
 
 export default function CenterSection() {
   return (
-    <div className="flex flex-col justify-between gap-12 min-h-[80vh]">
+    <div className="grid grid-rows-[1fr_2fr_1fr] justify-between gap-4 mx-auto">
       <FirstSection />
       <MainSection />
       <ThirdSection />
@@ -15,19 +15,19 @@ const FirstSection = () => {
   return (
     <div className="shadow px-4 py-8 rounded-b-3xl w-full flex items-center justify-center">
       <div className="w-1/2 p-2 border-l border-l-primary-900">
-        <span className="block text-center font-extrabold text-xl">
+        <span className="block text-center font-extrabold text-2xl">
           ۲۰,۰۰۰+
         </span>
-        <span className="block text-center text-[#5F6063] text-sm mt-1 ">
+        <span className="block text-center text-[#5F6063] mt-1">
           کارفرما در پراجکت
         </span>
       </div>
 
       <div className="w-1/2 p-2 ">
-        <span className="block text-center font-extrabold text-xl">
+        <span className="block text-center font-extrabold text-2xl">
           ۵۰,۰۰۰+
         </span>
-        <span className="block text-center text-[#5F6063] text-sm mt-1 ">
+        <span className="block text-center text-[#5F6063] mt-1">
           فریلنسر در پراجکت
         </span>
       </div>
@@ -37,9 +37,9 @@ const FirstSection = () => {
 
 const MainSection = () => {
   return (
-    <div className="shadow h-full px-4 py-16 rounded-3xl w-full flex flex-col items-center justify-center gap-6">
-      <h1 className="font-black text-primary-900 text-4xl">پراجـــکت</h1>
-      <h2 className="text-xl space-y-1">
+    <div className="shadow h-full px-8 py-16 rounded-3xl w-full flex flex-col items-center justify-center gap-6">
+      <h1 className="font-black text-primary-900 text-5xl">پراجـــکت</h1>
+      <h2 className="text-2xl space-y-1">
         <span className="block text-center">پلتفرم آنلاین استخدام</span>
         <span className="block text-center">فریلنسر و برون‌سپاری پروژه</span>
       </h2>
@@ -56,9 +56,8 @@ const MainSection = () => {
 
 const ThirdSection = () => {
   return (
-    <div className="shadow px-4 py-8 rounded-t-3xl w-full flex flex-col items-center justify-center">
-     
-     <IoShieldCheckmark size={32} className="text-primary-900 mb-4" />
+    <div className="shadow p-8 rounded-t-3xl w-full flex flex-col items-center justify-center">
+      <IoShieldCheckmark size={32} className="text-primary-900 mb-4" />
       <span className="font-extrabold block">
         پرداخت‌ امن پراجکت ضامن امنیت کاربران
       </span>
