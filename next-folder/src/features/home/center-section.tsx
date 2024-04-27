@@ -3,7 +3,7 @@ import { IoShieldCheckmark } from "react-icons/io5";
 
 export default function CenterSection() {
   return (
-    <div className="grid grid-rows-[1fr_2fr_1fr] justify-between gap-4 mx-auto">
+    <div className="grid grid-rows-[1fr_2fr_1fr] justify-between gap-8 mx-auto">
       <FirstSection />
       <MainSection />
       <ThirdSection />
