@@ -6,7 +6,7 @@ import { TiStarFullOutline } from 'react-icons/ti'
 export default function RightSection() {
   return (
     <div className='relative lg:block hidden rounded-tr-[64px] bg-gradient-to-b from-[#C9D4FF] via-[#EDF1FF] to-[#EDF1FF]'>
-        <img src={ManImg.src} className='absolute bottom-0 right-0'/>
+        <img src={ManImg.src} className='absolute bottom-0 right-0 max-h-[80vh]'/>
         <img src={shape.src} className='absolute top-8 left-0'/>
 
         <div className='absolute bg-white py-4 px-12 rounded-3xl mx-auto right-0 left-0 w-fit bottom-12 shadow-lg'>
