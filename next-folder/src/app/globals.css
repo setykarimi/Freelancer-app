@@ -281,3 +281,14 @@ table tr td:not(:first-child):before {
     right: 0;
   }
 }
+
+
+@media (max-height: 800px){
+  .main-height{
+    max-height: max-content!important;
+  }
+}
+
+.main-height{
+  max-height: 90vh;
+}
