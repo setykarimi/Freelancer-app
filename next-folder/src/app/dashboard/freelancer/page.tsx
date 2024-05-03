@@ -14,7 +14,7 @@ export default function FreelancerPage() {
   if (isLoading) return <Loading />;
 
   if (error) {
-    throw new Error(error?.response?.data?.message);
+    throw (error?.response?.data?.message);
   }
   const numOfProposals = proposals.length;
   const acceptedProposals = proposals.filter((p: any) => p.status === 2);
