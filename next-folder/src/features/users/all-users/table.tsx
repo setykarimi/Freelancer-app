@@ -1,14 +1,18 @@
-'use client'
+"use client";
 import Loading from "@/common/loading";
 import Table from "@/common/table";
-import UsersRow from "./row";
 import useUsers from "@/hooks/authentication/use-users";
+import UsersRow from "./row";
 
 export default function AllUsersTable() {
-  const { isLoading, users } = useUsers();
+  const { isLoading, users, isError, error }: any = useUsers();
   if (isLoading) return <Loading />;
 
-  if (!users.length) return <h3>یافت نشد</h3>;
+  if (isError) {
+    throw error?.response?.data?.message;
+  }
+
+  if (!users?.length) return <h3>یافت نشد</h3>;
 
   return (
     <>
@@ -23,7 +27,7 @@ export default function AllUsersTable() {
           <th>عملیات</th>
         </Table.Header>
         <Table.Body>
-          {users.map((user: any, index: number) => (
+          {users?.map((user: any, index: number) => (
             <UsersRow key={user._id} user={user} index={index} />
           ))}
         </Table.Body>

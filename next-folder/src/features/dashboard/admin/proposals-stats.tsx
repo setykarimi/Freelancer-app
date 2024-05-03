@@ -5,7 +5,7 @@ import { toPersianNumbers } from "@/utils/to-persian-numbers";
 import { BiSolidLayer } from "react-icons/bi";
 
 export default function ProposalStats() {
-  const { isLoading, proposals, isError }: any = useProposals();
+  const { isLoading, proposals, isError, error }: any = useProposals();
 
   if (isLoading) {
     return <Loading />;
@@ -20,6 +20,12 @@ export default function ProposalStats() {
   const waitToconfirmProposals = proposals.filter(
     (proposal: any) => proposal.status == 1
   ).length;
+
+  if(isError){
+    console.log("error", error);
+    
+    throw new Error(error?.response?.data?.message);
+  }
 
   return (
     <Stat

@@ -9,7 +9,7 @@ export default function AllProposalsTable() {
   if (isLoading) return <Loading />;
 
   if (error) {
-    throw new Error(error?.response?.data?.message);
+    throw error?.response?.data?.message;
   }
 
   if (!proposals.length) return <h3>یافت نشد</h3>;

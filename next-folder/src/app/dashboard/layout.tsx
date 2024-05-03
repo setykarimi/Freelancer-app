@@ -13,7 +13,7 @@ export default function DashboardLayout({
 }) {
   return (
     <DarkModeProvider>
-      <div className="grid lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr] h-screen w-full max-w-[1920px]">
+      <div className="lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[15rem_1fr] h-screen w-full max-w-[1920px]">
         {/* <Navbar /> */}
         {sidebar}
 

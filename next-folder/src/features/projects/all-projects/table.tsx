@@ -32,7 +32,7 @@ export default function AllProjectsTable({
   const { newCategories } = useCategories();
 
   if (error) {
-    throw new Error(error?.response?.data?.message);
+    throw (error?.response?.data?.message);
   }
 
   return (

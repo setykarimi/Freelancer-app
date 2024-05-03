@@ -2,7 +2,7 @@ import { getUsersApi } from "@/services/auth-service";
 import { useQuery } from "@tanstack/react-query";
 
 export default function useUsers() {
-  const { data, isLoading , isError} = useQuery({
+  const { data, isLoading , isError, error} = useQuery({
     queryKey: ["users"],
     queryFn: getUsersApi,
     retry: false,
@@ -13,6 +13,7 @@ export default function useUsers() {
   return {
     isLoading,
     users,
-    isError
+    isError,
+    error
   };
 }

@@ -5,13 +5,19 @@ import { toPersianNumbers } from "@/utils/to-persian-numbers";
 import { PiUsersThree } from "react-icons/pi";
 
 export default function UserStats() {
-  const { isLoading, users, isError }: any = useUsers();
+  const { isLoading, users, isError, error }: any = useUsers();
 
   if (isLoading) return <Loading />;
 
-  const activeUsers = users.filter((user: any) => user.status == 2).length;
-  const waitUsers = users.filter((user: any) => user.status == 1).length;
-  const declinedUsers = users.filter((user: any) => user.status == 0).length;
+  const activeUsers = users?.filter((user: any) => user.status == 2).length;
+  const waitUsers = users?.filter((user: any) => user.status == 1).length;
+  const declinedUsers = users?.filter((user: any) => user.status == 0).length;
+
+  if(isError){
+    console.log("error", error?.response?.data?.message);
+    
+    throw (error?.response?.data?.message);
+  }
 
   return (
     <Stat

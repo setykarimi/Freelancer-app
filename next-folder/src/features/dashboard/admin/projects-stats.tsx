@@ -5,7 +5,7 @@ import { toPersianNumbers } from "@/utils/to-persian-numbers";
 import { BiSolidDuplicate } from "react-icons/bi";
 
 export default function ProjectStats() {
-  const { isLoading, projects, isError }: any = useProjects();
+  const { isLoading, projects, isError, error }: any = useProjects();
 
   if (isLoading) {
     return <Loading />;
@@ -17,6 +17,10 @@ export default function ProjectStats() {
   const closedProjects = projects.filter(
     (project: any) => project.status == "CLOSED"
   ).length;
+
+    if(isError){    
+    throw (error?.response?.data?.message);
+  }
 
   return (
     <Stat

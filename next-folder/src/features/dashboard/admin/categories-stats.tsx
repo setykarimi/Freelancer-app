@@ -6,10 +6,15 @@ import truncateText from "@/utils/truncate-text";
 import { BiSolidCategory } from "react-icons/bi";
 
 export default function CategoriesStats() {
-  const { isLoading, rawCategories, isError }: any = useCategories();
+  const { isLoading, rawCategories, isError, error }: any = useCategories();
   
   if (isLoading) {
     return <Loading />;
+  }
+
+
+  if(isError){    
+    throw (error?.response?.data?.message);
   }
 
   return (

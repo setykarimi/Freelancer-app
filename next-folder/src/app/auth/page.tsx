@@ -36,7 +36,7 @@ export default function AuthPage() {
       setStep(2);
       toast.success(data?.message);
     } catch (error: any) {
-      const err_msg = error.response.data.message;
+      const err_msg = error?.response?.data?.message;
       toast.error(err_msg ? err_msg : "متاسفانه خطایی رخ داده است.");
     }
     setTime(90);
