@@ -6,7 +6,7 @@ import { getOtp } from "@/services/auth-service";
 import { convertPersianNumToEnglish } from "@/utils/convert-nums-to-english";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 const RESEND_TIME = 90;
@@ -16,9 +16,9 @@ export default function AuthPage() {
   const { user } = useUser();
   const router = useRouter();
   const [time, setTime] = useState(RESEND_TIME);
-  // useEffect(() => {
-  //   if (user) router.replace("/");
-  // }, [user]);
+  useEffect(() => {
+    if (user) router.replace("/");
+  }, [user]);
 
   const {
     isPending: isSendingOtp,
