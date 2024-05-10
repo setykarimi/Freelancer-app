@@ -1,15 +1,13 @@
 import Modal from "@/common/modal";
 import Table from "@/common/table";
-import CreateProjectForm from "@/features/projects/create";
 import ConfirmDelete from "@/features/projects/owner-projects/table/components/confirm-delete";
 import useRemoveCategory from "@/hooks/category/use-remove-category";
-import useRemoveProject from "@/hooks/projects/use-remove-project";
 import toLocalDateShort from "@/utils/to-local-date-short";
+import truncateText from "@/utils/truncate-text";
 import { useState } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import CreateCategoryForm from "../create";
-import truncateText from "@/utils/truncate-text";
 
 export default function AllCategoriesTableRow({
   category,
