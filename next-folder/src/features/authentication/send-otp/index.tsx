@@ -1,5 +1,5 @@
-import TextField from "@/common/form/text-field";
-import Loading from "@/common/loading";
+import TextField from "../../../common/form/text-field";
+import Loading from "../../../common/loading";
 import { SendOTPFormPropTypes } from "./type";
 
 export default function SendOTPForm({

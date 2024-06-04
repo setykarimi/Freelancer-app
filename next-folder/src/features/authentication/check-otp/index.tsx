@@ -1,6 +1,6 @@
-import Loading from "@/common/loading";
-import { checkOtp } from "@/services/auth-service";
-import { convertPersianNumToEnglish } from "@/utils/convert-nums-to-english";
+import Loading from "../../../common/loading";
+import { checkOtp } from "../../../services/auth-service";
+import { convertPersianNumToEnglish } from "../../../utils/convert-nums-to-english";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -77,7 +77,7 @@ export default function CheckOTPForm({
       <div className="mb-4 text-secondary-500 flex flex-col">
         {time > 0 ? (
           <p className="text-xs text-center">
-            <span className="font-bold">{time} </span>
+            <span className="font-bold">{time}</span>
             ثانیه تا ارسال مجدد کد
           </p>
         ) : (

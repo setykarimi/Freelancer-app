@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from "vitest";
-import { fireEvent, getByRole, render, screen } from "../../../utils/test-utils";
+import { fireEvent, render, screen } from "../../../utils/test-utils";
 import CheckOTPForm from "../check-otp";
 
 const mockedFunction = vi.fn();
@@ -41,11 +41,11 @@ describe("check otp", () => {
   });
 
   test("Check input value", () => {
-    renderComp()
-    const otpInput = screen.getAllByRole("textbox")[0];
+    renderComp();
+    const otpInput: any = screen.getAllByRole("textbox")[0];
     fireEvent.change(otpInput, { target: { value: "7" } });
 
-    expect(otpInput.value).toBe("7")
+    expect(otpInput.value).toBe("7");
 
     // const submitBuuton =screen.getByRole("button", {name: /تایید/i})
     // fireEvent.click(submitBuuton)
